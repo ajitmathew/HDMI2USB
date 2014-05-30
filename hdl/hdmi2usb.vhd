@@ -247,7 +247,8 @@ signal error_ram : std_logic;
 signal to_send : std_logic_vector(23 downto 0);
 
 
-	
+signal skip_s: std_logic;	
+signal wrote_once_s: std_logic;
 ---------------------------------------------------------------------------------------------------------------------	
 begin
 
@@ -256,13 +257,13 @@ slcs <= '0';
 slwr <= slwr_i;
 
 LED(0) <= de_H0;
-LED(1) <= de_H1;
+LED(1) <= skip_s;
 LED(2) <= usb_cmd(1);
 LED(3) <= flagB; -- full flag
 LED(4) <= flagC; -- empty flag 
 LED(5) <= slwr_i;
 LED(6) <= selector_cmd(0);
-LED(7) <= selector_cmd(1);
+LED(7) <= wrote_once_s;
 
 
 debouncerBtnc : entity work.debouncer
@@ -307,10 +308,12 @@ jpeg_encoder : entity work.jpeg_encoder_top
 		     outif_almost_full => outif_almost_full,
 		     resx              => resx,
 		     resy              => resy,
-		     jpeg_encoder_cmd  => jpeg_encoder_cmd,
+		     jpeg_encoder_cmd  => sw(1 downto 0),
 			 enable				=> jpg_enable,
 		     start             => jpg_start,
 		     done              => jpg_done,
+			  skip				  => skip_s,
+			  wrote_once		  => wrote_once_s,
 		     busy              => jpg_busy);
 			 
 		     

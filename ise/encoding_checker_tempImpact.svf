@@ -1,0 +1,21 @@
+// Created using Xilinx Cse Software [ISE - 14.7]
+// Date: Tue May 27 00:05:41 2014
+
+TRST OFF;
+ENDIR IDLE;
+ENDDR IDLE;
+STATE RESET;
+STATE IDLE;
+TIR 0 ;
+HIR 0 ;
+HDR 0 ;
+TDR 0 ;
+// Loading device with a `jstart` instruction. 
+SIR 6 TDI (0c) SMASK (3f) ;
+RUNTEST 24 TCK;
+TIR 0 ;
+HIR 0 ;
+TDR 0 ;
+HDR 0 ;
+SIR 6 TDI (3f) ;
+SDR 1 TDI (00) SMASK (01) ;

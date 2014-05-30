@@ -1,0 +1,10 @@
+/home/ajit/Documents/main/HDMI2USB-master/ise/hdmi2usb.ngc 1401406830
+../ipcore_dir/cdcfifo.ngc 1375157058
+../ipcore_dir/edidram.ngc 1375157058
+../ipcore_dir/bytefifoFPGA.ngc 1375157058
+../ipcore_dir/bytefifo.ngc 1375157058
+../ipcore_dir/rawUVCfifo.ngc 1375157058
+../ipcore_dir/cmdfifo.ngc 1375157058
+../ipcore_dir/rgbfifo.ngc 1375157058
+../ipcore_dir/image_selector_fifo.ngc 1375157058
+OK

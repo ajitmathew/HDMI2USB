@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "/home/ajit/Documents/main/HDMI2USB-master/ise/top_isim_beh.exe" -prj "/home/ajit/Documents/main/HDMI2USB-master/ise/top_beh.prj" "work.top" 

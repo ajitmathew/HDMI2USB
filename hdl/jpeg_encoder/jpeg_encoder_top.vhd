@@ -259,7 +259,7 @@ resy_q <= resy;
 		OPB_ABus    <= X"0000_0100" + counter*X"04";
 		OPB_RNW     <= '0';
 		OPB_BE      <= X"F";
-		OPB_DBus_in <= X"0000_00" & (qrom_lum(conv_integer((jpeg_encoder_cmd(1 downto 0) & counter))));
+		OPB_DBus_in <= X"0000_00" & (qrom_lum(conv_integer(("11" & counter))));
 		ps <= write_lum_tables_wait;
 
 	when write_lum_tables_wait =>
@@ -285,7 +285,7 @@ resy_q <= resy;
 		OPB_ABus    <= X"0000_0200" + counter*X"04";
 		OPB_RNW     <= '0';
 		OPB_BE      <= X"F";
-		OPB_DBus_in <= X"0000_00" & (qrom_chr(conv_integer((jpeg_encoder_cmd(0 downto 0) & counter))));
+		OPB_DBus_in <= X"0000_00" & (qrom_chr(conv_integer(("1" & counter))));
 		ps <= write_chr_tables_wait;
 
 	when write_chr_tables_wait =>

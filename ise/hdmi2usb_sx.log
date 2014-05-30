@@ -1,0 +1,1487 @@
+
+Command Line : 
+-------------
+map C:\HDMI2USB-master\ise\smartxplorer_results\run4\hdmi2usb.ngd -ol high -xe n -register_duplication on -w -p xc6slx45-csg324-3 -o hdmi2usb_map.ncd C:\HDMI2USB-master\ise\smartxplorer_results\run4\hdmi2usb.pcf
+
+Release 14.2 - Map P.28xd (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+Using target part "6slx45csg324-3".
+Mapping design into LUTs...
+WARNING:MapLib:163 - Bus sda driven by tbufs will be transformed to use
+   combinational drivers.
+Writing file hdmi2usb_map.ngm...
+Running directed packing...
+WARNING:Pack:2549 - The register "edid_hack0/edid_master/sdaout" has the
+   property IOB=TRUE, but was not packed into the OLOGIC component. The output
+   signal for register symbol edid_hack0/edid_master/sdaout requires general
+   routing to fabric, but the register can only be routed to ILOGIC, IODELAY,
+   and IOB.
+WARNING:Pack:2549 - The register "edid_hack0/edid_slave/sdaout" has the property
+   IOB=TRUE, but was not packed into the OLOGIC component. The output signal for
+   register symbol edid_hack0/edid_slave/sdaout requires general routing to
+   fabric, but the register can only be routed to ILOGIC, IODELAY, and IOB.
+WARNING:Pack:2549 - The register "edid_hack1/edid_slave/sdaout" has the property
+   IOB=TRUE, but was not packed into the OLOGIC component. The output signal for
+   register symbol edid_hack1/edid_slave/sdaout requires general routing to
+   fabric, but the register can only be routed to ILOGIC, IODELAY, and IOB.
+Running delay-based LUT packing...
+Updating timing models...
+WARNING:Timing:3159 - The DCM, testpattern_comp/patternClk_com/dcm_clkgen_inst, has the attribute DFS_OSCILLATOR_MODE not set to
+   PHASE_FREQ_LOCK. No phase relationship exists between the input clock and CLKFX or CLKFX180 outputs of this DCM. Data paths between these
+   clock domains must be constrained using FROM/TO constraints.
+WARNING:Pack:2768 - At least one timing constraint is impossible to meet because component switching limit violations have been detected for
+   a constrained component. A timing constraint summary below shows the failing constraints (preceded with an Asterisk (*)). Please use the
+   Timing Analyzer (GUI) or TRCE (command line) with the Mapped NCD and PCF files to evaluate the component switching limit violations in
+   more detail. Evaluate the datasheet for alternative configurations for the component that could allow the frequencies requested in the
+   constraint. Otherwise, the timing constraint covering this component might need to be modified to satisfy the component switching limits
+   specified in the datasheet.
+INFO:Timing:3386 - Intersecting Constraints found and resolved.  For more 
+   information, see the TSI report.  Please consult the Xilinx Command Line 
+   Tools User Guide for information on generating a TSI report.
+INFO:Timing:3284 - This timing report was generated using estimated delay 
+   information.  For accurate numbers, please refer to the post Place and Route 
+   timing report.
+Number of Timing Constraints that were not applied: 13
+
+Asterisk (*) preceding a constraint indicates it was not met.
+   This may be due to a setup or hold violation.
+
+----------------------------------------------------------------------------------------------------------
+  Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
+                                            |             |    Slack   | Achievable | Errors |    Score   
+----------------------------------------------------------------------------------------------------------
+* TS_hdmiMatri_Comp_tx_pllclk2_1 = PERIOD T | SETUP       |     3.737ns|     1.263ns|       0|           0
+  IMEGRP "hdmiMatri_Comp_tx_pllclk2_1" TS_h | HOLD        |    -0.954ns|            |      40|       37020
+  dmiMatri_Comp_dvi_rx1_pllclk1 / 2 HIGH 50 | MINPERIOD   |     3.270ns|     1.730ns|       0|           0
+  %                                         |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+* TS_hdmiMatri_Comp_dvi_rx1_pllclk1 = PERIO | SETUP       |     3.711ns|     6.289ns|       0|           0
+  D TIMEGRP "hdmiMatri_Comp_dvi_rx1_pllclk1 | HOLD        |    -0.395ns|            |     272|       34643
+  " TS_DVI_CLOCK1 HIGH 50%                  |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+* TS_pclk_tp = PERIOD TIMEGRP "pclk_tp" TS_ | SETUP       |     9.914ns|     2.393ns|       0|           0
+  clk / 0.65 HIGH 50%                       | HOLD        |    -0.242ns|            |      26|        5980
+                                            | MINLOWPULSE |     7.306ns|     5.000ns|       0|           0
+----------------------------------------------------------------------------------------------------------
+* TS_ddr2_comp_ramComp_memc3_infrastructure | MINPERIOD   |    -0.219ns|     1.499ns|       1|         219
+  _inst_clk_2x_0 = PERIOD TIMEGRP "ddr2_com |             |            |            |        |            
+  p_ramComp_memc3_infrastructure_inst_clk_2 |             |            |            |        |            
+  x_0" TS_clk / 6.25 HIGH 50%               |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+* TS_ddr2_comp_ramComp_memc3_infrastructure | MINPERIOD   |    -0.219ns|     1.499ns|       1|         219
+  _inst_clk_2x_180 = PERIOD TIMEGRP "ddr2_c |             |            |            |        |            
+  omp_ramComp_memc3_infrastructure_inst_clk |             |            |            |        |            
+  _2x_180" TS_clk / 6.25 PHASE 0.64 ns HIGH |             |            |            |        |            
+   50%                                      |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+* TS_hdmiMatri_Comp_dvi_rx0_pllclk1 = PERIO | SETUP       |     3.747ns|     2.506ns|       0|           0
+  D TIMEGRP "hdmiMatri_Comp_dvi_rx0_pllclk1 | HOLD        |    -0.168ns|            |     126|       13197
+  " TS_DVI_CLOCK0 HIGH 50%                  | MINLOWPULSE |     6.666ns|     3.334ns|       0|           0
+----------------------------------------------------------------------------------------------------------
+* TS_ddr2_comp_ramComp_memc3_infrastructure | SETUP       |     2.368ns|     5.718ns|       0|           0
+  _inst_clk0_bufg_in = PERIOD TIMEGRP "ddr2 | HOLD        |    -0.097ns|            |     672|       64128
+  _comp_ramComp_memc3_infrastructure_inst_c |             |            |            |        |            
+  lk0_bufg_in" TS_clk / 0.78125 HIGH 50%    |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_DVI_CLOCK0 = PERIOD TIMEGRP "DVI_CLOCK | MINLOWPULSE |     6.666ns|     3.334ns|       0|           0
+  0" 10 ns HIGH 50%                         |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_DVI_CLOCK1 = PERIOD TIMEGRP "DVI_CLOCK | MINLOWPULSE |     6.666ns|     3.334ns|       0|           0
+  1" 10 ns HIGH 50%                         |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_clk = PERIOD TIMEGRP "clk" 8 ns HIGH 5 | MINLOWPULSE |     2.660ns|     5.340ns|       0|           0
+  0%                                        |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_ddr2_comp_ramComp_memc3_infrastructure | SETUP       |     2.799ns|     2.321ns|       0|           0
+  _inst_mcb_drp_clk_bufg_in = PERIOD TIMEGR | HOLD        |     0.106ns|            |       0|           0
+  P "ddr2_comp_ramComp_memc3_infrastructure |             |            |            |        |            
+  _inst_mcb_drp_clk_bufg_in" TS_clk / 1.562 |             |            |            |        |            
+  5 HIGH 50%                                |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_tx_pllclk2_0 = PERIOD T | MINPERIOD   |     3.270ns|     1.730ns|       0|           0
+  IMEGRP "hdmiMatri_Comp_tx_pllclk2_0" TS_h |             |            |            |        |            
+  dmiMatri_Comp_dvi_rx0_pllclk1 / 2 HIGH 50 |             |            |            |        |            
+  %                                         |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_dvi_rx1_pllclk2 = PERIO | SETUP       |     3.283ns|     1.717ns|       0|           0
+  D TIMEGRP "hdmiMatri_Comp_dvi_rx1_pllclk2 | HOLD        |     0.038ns|            |       0|           0
+  " TS_DVI_CLOCK1 / 2 HIGH 50%              | MINPERIOD   |     3.270ns|     1.730ns|       0|           0
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_dvi_rx0_pllclk2 = PERIO | SETUP       |     3.283ns|     1.717ns|       0|           0
+  D TIMEGRP "hdmiMatri_Comp_dvi_rx0_pllclk2 | HOLD        |     0.038ns|            |       0|           0
+  " TS_DVI_CLOCK0 / 2 HIGH 50%              | MINPERIOD   |     3.270ns|     1.730ns|       0|           0
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_tx_pllclk2 = PERIOD TIM | MINPERIOD   |     4.423ns|     1.730ns|       0|           0
+  EGRP "hdmiMatri_Comp_tx_pllclk2" TS_pclk_ |             |            |            |        |            
+  tp / 2 HIGH 50%                           |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_img_clk = PERIOD TIMEGRP "img_clk_tnm" | MINPERIOD   |     6.876ns|     3.124ns|       0|           0
+   10 ns HIGH 50%                           |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_ramdo_1 = MAXDELAY FROM TIMEGRP "bramg | SETUP       |     8.603ns|     1.397ns|       0|           0
+  rp_1" TO TIMEGRP "fddbgrp_1" TS_DVI_CLOCK | HOLD        |     0.086ns|            |       0|           0
+  1                                         |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_ramdo_0 = MAXDELAY FROM TIMEGRP "bramg | SETUP       |     8.603ns|     1.397ns|       0|           0
+  rp_0" TO TIMEGRP "fddbgrp_0" TS_DVI_CLOCK | HOLD        |     0.086ns|            |       0|           0
+  0                                         |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_ifclk = PERIOD TIMEGRP "ifclk" 48 MHz  | SETUP       |     8.632ns|     3.568ns|       0|           0
+  HIGH 50%                                  | HOLD        |     0.060ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+  TS_ramra_1 = MAXDELAY FROM TIMEGRP "bramr | SETUP       |     9.048ns|     0.952ns|       0|           0
+  a_1" TO TIMEGRP "fddbgrp_1" TS_DVI_CLOCK1 | HOLD        |     0.413ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+  TS_ramra_0 = MAXDELAY FROM TIMEGRP "bramr | SETUP       |     9.048ns|     0.952ns|       0|           0
+  a_0" TO TIMEGRP "fddbgrp_0" TS_DVI_CLOCK0 | HOLD        |     0.413ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_dvi_rx0_pllclk0 = PERIO | N/A         |         N/A|         N/A|     N/A|         N/A
+  D TIMEGRP "hdmiMatri_Comp_dvi_rx0_pllclk0 |             |            |            |        |            
+  " TS_DVI_CLOCK0 / 10 HIGH 50%             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_dvi_rx1_pllclk0 = PERIO | N/A         |         N/A|         N/A|     N/A|         N/A
+  D TIMEGRP "hdmiMatri_Comp_dvi_rx1_pllclk0 |             |            |            |        |            
+  " TS_DVI_CLOCK1 / 10 HIGH 50%             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  PATH "TS_tig1_path" TIG                   | SETUP       |         N/A|     1.716ns|     N/A|           0
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_tx_pllclk0 = PERIOD TIM | N/A         |         N/A|         N/A|     N/A|         N/A
+  EGRP "hdmiMatri_Comp_tx_pllclk0" TS_pclk_ |             |            |            |        |            
+  tp / 10 HIGH 50%                          |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  PATH "TS_tig2_path" TIG                   | SETUP       |         N/A|     3.539ns|     N/A|           0
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_tx_pllclk0_0 = PERIOD T | N/A         |         N/A|         N/A|     N/A|         N/A
+  IMEGRP "hdmiMatri_Comp_tx_pllclk0_0" TS_h |             |            |            |        |            
+  dmiMatri_Comp_dvi_rx0_pllclk1 / 10 HIGH 5 |             |            |            |        |            
+  0%                                        |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_tx_pllclk0_1 = PERIOD T | N/A         |         N/A|         N/A|     N/A|         N/A
+  IMEGRP "hdmiMatri_Comp_tx_pllclk0_1" TS_h |             |            |            |        |            
+  dmiMatri_Comp_dvi_rx1_pllclk1 / 10 HIGH 5 |             |            |            |        |            
+  0%                                        |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+
+
+Derived Constraint Report
+Review Timing Report for more details on the following derived constraints.
+To create a Timing Report, run "trce -v 12 -fastpaths -o design_timing_report design.ncd design.pcf"
+or "Run Timing Analysis" from Timing Analyzer (timingan).
+Derived Constraints for TS_clk
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+---
+----------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths
+Analyzed       |
+|           Constraint          | Requirement
+|-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    |
+Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+---
+----------+
+|TS_clk                         |      8.000ns|      5.340ns|      9.369ns|            0|          700|            0|   
+   244299|
+| TS_pclk_tp                    |     12.308ns|      5.000ns|      3.460ns|           26|            0|         2845|   
+        0|
+|  TS_hdmiMatri_Comp_tx_pllclk0 |      1.231ns|          N/A|          N/A|            0|            0|            0|   
+        0|
+|  TS_hdmiMatri_Comp_tx_pllclk2 |      6.154ns|      1.730ns|          N/A|            0|            0|            0|   
+        0|
+| TS_ddr2_comp_ramComp_memc3_inf|      5.120ns|      2.321ns|          N/A|            0|            0|        34655|   
+        0|
+| rastructure_inst_mcb_drp_clk_b|             |             |             |             |             |             |   
+         |
+| ufg_in                        |             |             |             |             |             |             |   
+         |
+| TS_ddr2_comp_ramComp_memc3_inf|      1.280ns|      1.499ns|          N/A|            1|            0|            0|   
+        0|
+| rastructure_inst_clk_2x_180   |             |             |             |             |             |             |   
+         |
+| TS_ddr2_comp_ramComp_memc3_inf|      1.280ns|      1.499ns|          N/A|            1|            0|            0|   
+        0|
+| rastructure_inst_clk_2x_0     |             |             |             |             |             |             |   
+         |
+| TS_ddr2_comp_ramComp_memc3_inf|     10.240ns|      5.718ns|          N/A|          672|            0|       206799|   
+        0|
+| rastructure_inst_clk0_bufg_in |             |             |             |             |             |             |   
+         |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+---
+----------+
+
+Derived Constraints for TS_DVI_CLOCK0
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+---
+----------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths
+Analyzed       |
+|           Constraint          | Requirement
+|-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    |
+Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+---
+----------+
+|TS_DVI_CLOCK0                  |     10.000ns|      3.334ns|      3.460ns|            0|          126|            0|   
+     5457|
+| TS_ramdo_0                    |     10.000ns|      1.397ns|          N/A|            0|            0|           30|   
+        0|
+| TS_ramra_0                    |     10.000ns|      0.952ns|          N/A|            0|            0|          120|   
+        0|
+| TS_hdmiMatri_Comp_dvi_rx0_pllc|     10.000ns|      3.334ns|      3.460ns|          126|            0|         3759|   
+        0|
+| lk1                           |             |             |             |             |             |             |   
+         |
+|  TS_hdmiMatri_Comp_tx_pllclk0_|      1.000ns|          N/A|          N/A|            0|            0|            0|   
+        0|
+|  0                            |             |             |             |             |             |             |   
+         |
+|  TS_hdmiMatri_Comp_tx_pllclk2_|      5.000ns|      1.730ns|          N/A|            0|            0|            0|   
+        0|
+|  0                            |             |             |             |             |             |             |   
+         |
+| TS_hdmiMatri_Comp_dvi_rx0_pllc|      1.000ns|          N/A|          N/A|            0|            0|            0|   
+        0|
+| lk0                           |             |             |             |             |             |             |   
+         |
+| TS_hdmiMatri_Comp_dvi_rx0_pllc|      5.000ns|      1.730ns|          N/A|            0|            0|         1548|   
+        0|
+| lk2                           |             |             |             |             |             |             |   
+         |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+---
+----------+
+
+Derived Constraints for TS_DVI_CLOCK1
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+---
+----------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths
+Analyzed       |
+|           Constraint          | Requirement
+|-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    |
+Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+---
+----------+
+|TS_DVI_CLOCK1                  |     10.000ns|      3.334ns|      6.289ns|            0|          312|            0|   
+    32421|
+| TS_ramdo_1                    |     10.000ns|      1.397ns|          N/A|            0|            0|           30|   
+        0|
+| TS_ramra_1                    |     10.000ns|      0.952ns|          N/A|            0|            0|          120|   
+        0|
+| TS_hdmiMatri_Comp_dvi_rx1_pllc|     10.000ns|      6.289ns|      3.460ns|          272|           40|        30485|   
+      238|
+| lk1                           |             |             |             |             |             |             |   
+         |
+|  TS_hdmiMatri_Comp_tx_pllclk0_|      1.000ns|          N/A|          N/A|            0|            0|            0|   
+        0|
+|  1                            |             |             |             |             |             |             |   
+         |
+|  TS_hdmiMatri_Comp_tx_pllclk2_|      5.000ns|      1.730ns|          N/A|           40|            0|          238|   
+        0|
+|  1                            |             |             |             |             |             |             |   
+         |
+| TS_hdmiMatri_Comp_dvi_rx1_pllc|      1.000ns|          N/A|          N/A|            0|            0|            0|   
+        0|
+| lk0                           |             |             |             |             |             |             |   
+         |
+| TS_hdmiMatri_Comp_dvi_rx1_pllc|      5.000ns|      1.730ns|          N/A|            0|            0|         1548|   
+        0|
+| lk2                           |             |             |             |             |             |             |   
+         |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+---
+----------+
+
+7 constraints not met.
+INFO:Timing:2761 - N/A entries in the Constraints List may indicate that the 
+   constraint is not analyzed due to the following: No paths covered by this 
+   constraint; Other constraints intersect with this constraint; or This 
+   constraint was disabled by a Path Tracing Control. Please run the Timespec 
+   Interaction Report (TSI) via command line (trce tsi) or Timing Analyzer GUI.
+
+
+INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
+   (.mrp).
+Running timing-driven placement...
+Total REAL time at the beginning of Placer: 1 mins 25 secs 
+Total CPU  time at the beginning of Placer: 1 mins 
+
+Phase 1.1  Initial Placement Analysis
+Phase 1.1  Initial Placement Analysis (Checksum:6a7f452f) REAL time: 1 mins 33 secs 
+
+Phase 2.7  Design Feasibility Check
+Phase 2.7  Design Feasibility Check (Checksum:6a7f452f) REAL time: 1 mins 36 secs 
+
+Phase 3.31  Local Placement Optimization
+Phase 3.31  Local Placement Optimization (Checksum:6a7f452f) REAL time: 1 mins 36 secs 
+
+Phase 4.2  Initial Placement for Architecture Specific Features
+
+Phase 4.2  Initial Placement for Architecture Specific Features
+(Checksum:f6b0005d) REAL time: 2 mins 47 secs 
+
+Phase 5.36  Local Placement Optimization
+Phase 5.36  Local Placement Optimization (Checksum:f6b0005d) REAL time: 2 mins 47 secs 
+
+Phase 6.30  Global Clock Region Assignment
+Phase 6.30  Global Clock Region Assignment (Checksum:f6b0005d) REAL time: 2 mins 47 secs 
+
+Phase 7.3  Local Placement Optimization
+Phase 7.3  Local Placement Optimization (Checksum:f6b0005d) REAL time: 2 mins 47 secs 
+
+Phase 8.5  Local Placement Optimization
+Phase 8.5  Local Placement Optimization (Checksum:f6b0005d) REAL time: 2 mins 48 secs 
+
+Phase 9.8  Global Placement
+.........................
+......................................................................
+...........................................................................................................................................................................................
+.........................................................................................................................................................................
+..............
+Phase 9.8  Global Placement (Checksum:9b9243e6) REAL time: 9 mins 11 secs 
+
+Phase 10.5  Local Placement Optimization
+Phase 10.5  Local Placement Optimization (Checksum:9b9243e6) REAL time: 9 mins 12 secs 
+
+Phase 11.18  Placement Optimization
+Phase 11.18  Placement Optimization (Checksum:e19b8c2c) REAL time: 10 mins 53 secs 
+
+Phase 12.5  Local Placement Optimization
+Phase 12.5  Local Placement Optimization (Checksum:e19b8c2c) REAL time: 10 mins 54 secs 
+
+Phase 13.34  Placement Validation
+Phase 13.34  Placement Validation (Checksum:e9fc96e0) REAL time: 10 mins 55 secs 
+
+Total REAL time to Placer completion: 11 mins 24 secs 
+Total CPU  time to Placer completion: 10 mins 49 secs 
+Running physical synthesis...
+
+Physical synthesis completed.
+Running post-placement packing...
+Writing output files...
+
+Design Summary:
+Number of errors:      0
+Number of warnings:   73
+Slice Logic Utilization:
+  Number of Slice Registers:                 8,227 out of  54,576   15%
+    Number used as Flip Flops:               8,220
+    Number used as Latches:                      7
+    Number used as Latch-thrus:                  0
+    Number used as AND/OR logics:                0
+  Number of Slice LUTs:                     10,085 out of  27,288   36%
+    Number used as logic:                    8,695 out of  27,288   31%
+      Number using O6 output only:           6,213
+      Number using O5 output only:             410
+      Number using O5 and O6:                2,072
+      Number used as ROM:                        0
+    Number used as Memory:                     727 out of   6,408   11%
+      Number used as Dual Port RAM:            664
+        Number using O6 output only:           560
+        Number using O5 output only:             0
+        Number using O5 and O6:                104
+      Number used as Single Port RAM:            0
+      Number used as Shift Register:            63
+        Number using O6 output only:            24
+        Number using O5 output only:             0
+        Number using O5 and O6:                 39
+    Number used exclusively as route-thrus:    663
+      Number with same-slice register load:    630
+      Number with same-slice carry load:        32
+      Number with other load:                    1
+
+Slice Logic Distribution:
+  Number of occupied Slices:                 4,001 out of   6,822   58%
+  Nummber of MUXCYs used:                    1,884 out of  13,644   13%
+  Number of LUT Flip Flop pairs used:       12,330
+    Number with an unused Flip Flop:         5,348 out of  12,330   43%
+    Number with an unused LUT:               2,245 out of  12,330   18%
+    Number of fully used LUT-FF pairs:       4,737 out of  12,330   38%
+    Number of unique control sets:             420
+    Number of slice register sites lost
+      to control set restrictions:           1,447 out of  54,576    2%
+
+  A LUT Flip Flop pair for this architecture represents one LUT paired with
+  one Flip Flop within a slice.  A control set is a unique combination of
+  clock, reset, set, and enable signals for a registered element.
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+IO Utilization:
+  Number of bonded IOBs:                       127 out of     218   58%
+    Number of LOCed IOBs:                      127 out of     127  100%
+    IOB Flip Flops:                              8
+    IOB Master Pads:                             8
+    IOB Slave Pads:                              8
+
+Specific Feature Utilization:
+  Number of RAMB16BWERs:                        67 out of     116   57%
+  Number of RAMB8BWERs:                         19 out of     232    8%
+  Number of BUFIO2/BUFIO2_2CLKs:                 3 out of      32    9%
+    Number used as BUFIO2s:                      3
+    Number used as BUFIO2_2CLKs:                 0
+  Number of BUFIO2FB/BUFIO2FB_2CLKs:             0 out of      32    0%
+  Number of BUFG/BUFGMUXs:                      10 out of      16   62%
+    Number used as BUFGs:                        8
+    Number used as BUFGMUX:                      2
+  Number of DCM/DCM_CLKGENs:                     1 out of       8   12%
+    Number used as DCMs:                         0
+    Number used as DCM_CLKGENs:                  1
+  Number of ILOGIC2/ISERDES2s:                  12 out of     376    3%
+    Number used as ILOGIC2s:                     0
+    Number used as ISERDES2s:                   12
+  Number of IODELAY2/IODRP2/IODRP2_MCBs:        36 out of     376    9%
+    Number used as IODELAY2s:                   12
+    Number used as IODRP2s:                      2
+    Number used as IODRP2_MCBs:                 22
+  Number of OLOGIC2/OSERDES2s:                  69 out of     376   18%
+    Number used as OLOGIC2s:                     8
+    Number used as OSERDES2s:                   61
+  Number of BSCANs:                              0 out of       4    0%
+  Number of BUFHs:                               0 out of     256    0%
+  Number of BUFPLLs:                             4 out of       8   50%
+  Number of BUFPLL_MCBs:                         1 out of       4   25%
+  Number of DSP48A1s:                           21 out of      58   36%
+  Number of ICAPs:                               0 out of       1    0%
+  Number of MCBs:                                1 out of       2   50%
+  Number of PCILOGICSEs:                         0 out of       2    0%
+  Number of PLL_ADVs:                            4 out of       4  100%
+  Number of PMVs:                                0 out of       1    0%
+  Number of STARTUPs:                            0 out of       1    0%
+  Number of SUSPEND_SYNCs:                       0 out of       1    0%
+
+Average Fanout of Non-Clock Nets:                3.72
+
+Peak Memory Usage:  786 MB
+Total REAL time to MAP completion:  13 mins 58 secs 
+Total CPU time to MAP completion:   13 mins 12 secs 
+
+Mapping completed.
+See MAP report file "hdmi2usb_map.mrp" for details.
+
+Command Line : 
+-------------
+par C:\HDMI2USB-master\ise\smartxplorer_results\run4\hdmi2usb.ngd -ol high -xe n -w hdmi2usb.ncd C:\HDMI2USB-master\ise\smartxplorer_results\run4\hdmi2usb.pcf
+
+Release 14.2 - par P.28xd (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+
+
+Constraints file: C:\HDMI2USB-master\ise\smartxplorer_results\run4\hdmi2usb.pcf.
+Loading device for application Rf_Device from file '6slx45.nph' in environment C:\Xilinx\14.2\ISE_DS\ISE\.
+   "hdmi2usb" is an NCD, version 3.2, device xc6slx45, package csg324, speed -3
+
+Initializing temperature to 85.000 Celsius. (default - Range: 0.000 to 85.000 Celsius)
+Initializing voltage to 1.140 Volts. (default - Range: 1.140 to 1.260 Volts)
+
+
+Device speed data version:  "PRODUCTION 1.22 2012-07-09".
+
+
+
+Device Utilization Summary:
+
+Slice Logic Utilization:
+  Number of Slice Registers:                 8,227 out of  54,576   15%
+    Number used as Flip Flops:               8,220
+    Number used as Latches:                      7
+    Number used as Latch-thrus:                  0
+    Number used as AND/OR logics:                0
+  Number of Slice LUTs:                     10,085 out of  27,288   36%
+    Number used as logic:                    8,695 out of  27,288   31%
+      Number using O6 output only:           6,213
+      Number using O5 output only:             410
+      Number using O5 and O6:                2,072
+      Number used as ROM:                        0
+    Number used as Memory:                     727 out of   6,408   11%
+      Number used as Dual Port RAM:            664
+        Number using O6 output only:           560
+        Number using O5 output only:             0
+        Number using O5 and O6:                104
+      Number used as Single Port RAM:            0
+      Number used as Shift Register:            63
+        Number using O6 output only:            24
+        Number using O5 output only:             0
+        Number using O5 and O6:                 39
+    Number used exclusively as route-thrus:    663
+      Number with same-slice register load:    630
+      Number with same-slice carry load:        32
+      Number with other load:                    1
+
+Slice Logic Distribution:
+  Number of occupied Slices:                 4,001 out of   6,822   58%
+  Nummber of MUXCYs used:                    1,884 out of  13,644   13%
+  Number of LUT Flip Flop pairs used:       12,330
+    Number with an unused Flip Flop:         5,348 out of  12,330   43%
+    Number with an unused LUT:               2,245 out of  12,330   18%
+    Number of fully used LUT-FF pairs:       4,737 out of  12,330   38%
+    Number of slice register sites lost
+      to control set restrictions:               0 out of  54,576    0%
+
+  A LUT Flip Flop pair for this architecture represents one LUT paired with
+  one Flip Flop within a slice.  A control set is a unique combination of
+  clock, reset, set, and enable signals for a registered element.
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+IO Utilization:
+  Number of bonded IOBs:                       127 out of     218   58%
+    Number of LOCed IOBs:                      127 out of     127  100%
+    IOB Flip Flops:                              8
+    IOB Master Pads:                             8
+    IOB Slave Pads:                              8
+
+Specific Feature Utilization:
+  Number of RAMB16BWERs:                        67 out of     116   57%
+  Number of RAMB8BWERs:                         19 out of     232    8%
+  Number of BUFIO2/BUFIO2_2CLKs:                 3 out of      32    9%
+    Number used as BUFIO2s:                      3
+    Number used as BUFIO2_2CLKs:                 0
+  Number of BUFIO2FB/BUFIO2FB_2CLKs:             0 out of      32    0%
+  Number of BUFG/BUFGMUXs:                      10 out of      16   62%
+    Number used as BUFGs:                        8
+    Number used as BUFGMUX:                      2
+  Number of DCM/DCM_CLKGENs:                     1 out of       8   12%
+    Number used as DCMs:                         0
+    Number used as DCM_CLKGENs:                  1
+  Number of ILOGIC2/ISERDES2s:                  12 out of     376    3%
+    Number used as ILOGIC2s:                     0
+    Number used as ISERDES2s:                   12
+  Number of IODELAY2/IODRP2/IODRP2_MCBs:        36 out of     376    9%
+    Number used as IODELAY2s:                   12
+    Number used as IODRP2s:                      2
+    Number used as IODRP2_MCBs:                 22
+  Number of OLOGIC2/OSERDES2s:                  69 out of     376   18%
+    Number used as OLOGIC2s:                     8
+    Number used as OSERDES2s:                   61
+  Number of BSCANs:                              0 out of       4    0%
+  Number of BUFHs:                               0 out of     256    0%
+  Number of BUFPLLs:                             4 out of       8   50%
+  Number of BUFPLL_MCBs:                         1 out of       4   25%
+  Number of DSP48A1s:                           21 out of      58   36%
+  Number of ICAPs:                               0 out of       1    0%
+  Number of MCBs:                                1 out of       2   50%
+  Number of PCILOGICSEs:                         0 out of       2    0%
+  Number of PLL_ADVs:                            4 out of       4  100%
+  Number of PMVs:                                0 out of       1    0%
+  Number of STARTUPs:                            0 out of       1    0%
+  Number of SUSPEND_SYNCs:                       0 out of       1    0%
+
+
+Overall effort level (-ol):   High 
+Router effort level (-rl):    High 
+
+WARNING:Timing:3159 - The DCM, testpattern_comp/patternClk_com/dcm_clkgen_inst, has the attribute DFS_OSCILLATOR_MODE not set to
+   PHASE_FREQ_LOCK. No phase relationship exists between the input clock and CLKFX or CLKFX180 outputs of this DCM. Data paths between these
+   clock domains must be constrained using FROM/TO constraints.
+INFO:Timing:3386 - Intersecting Constraints found and resolved.  For more information, see the TSI report.  Please consult the Xilinx
+   Command Line Tools User Guide for information on generating a TSI report.
+Starting initial Timing Analysis.  REAL time: 28 secs 
+WARNING:Par:450 - At least one timing constraint is impossible to meet because component switching limit violations have been detected for a
+   constrained component. A timing constraint summary below shows the failing constraints (preceded with an Asterisk (*)). Please use the
+   Timing Analyzer (GUI) or TRCE (command line) with the Mapped NCD and PCF files to evaluate the component switching limit violations in
+   more detail. Evaluate the datasheet for alternative configurations for the component that could allow the frequencies requested in the
+   constraint. Otherwise, the timing constraint covering this component might need to be modified to satisfy the component switching limits
+   specified in the datasheet.
+
+INFO:Timing:3386 - Intersecting Constraints found and resolved.  For more 
+   information, see the TSI report.  Please consult the Xilinx Command Line 
+   Tools User Guide for information on generating a TSI report.
+INFO:Timing:3284 - This timing report was generated using estimated delay 
+   information.  For accurate numbers, please refer to the post Place and Route 
+   timing report.
+Number of Timing Constraints that were not applied: 13
+
+Asterisk (*) preceding a constraint indicates it was not met.
+   This may be due to a setup or hold violation.
+
+----------------------------------------------------------------------------------------------------------
+  Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
+                                            |             |    Slack   | Achievable | Errors |    Score   
+----------------------------------------------------------------------------------------------------------
+* TS_hdmiMatri_Comp_dvi_rx1_pllclk1 = PERIO | SETUP       |     0.976ns|     9.024ns|       0|           0
+  D TIMEGRP         "hdmiMatri_Comp_dvi_rx1 | HOLD        |    -2.648ns|            |      59|      116927
+  _pllclk1" TS_DVI_CLOCK1 HIGH 50%          |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+* TS_hdmiMatri_Comp_dvi_rx0_pllclk1 = PERIO | SETUP       |     2.442ns|     5.116ns|       0|           0
+  D TIMEGRP         "hdmiMatri_Comp_dvi_rx0 | HOLD        |    -2.377ns|            |      59|      128429
+  _pllclk1" TS_DVI_CLOCK0 HIGH 50%          |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+* TS_pclk_tp = PERIOD TIMEGRP "pclk_tp" TS_ | SETUP       |     5.734ns|     6.573ns|       0|           0
+  clk / 0.65 HIGH 50%                       | HOLD        |    -1.852ns|            |      26|       25714
+----------------------------------------------------------------------------------------------------------
+* TS_hdmiMatri_Comp_tx_pllclk2_1 = PERIOD T | SETUP       |     0.892ns|     4.108ns|       0|           0
+  IMEGRP "hdmiMatri_Comp_tx_pllclk2_1"      | HOLD        |    -0.626ns|            |       5|        2666
+      TS_hdmiMatri_Comp_dvi_rx1_pllclk1 / 2 |             |            |            |        |            
+   HIGH 50%                                 |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+* TS_ddr2_comp_ramComp_memc3_infrastructure | SETUP       |    -0.548ns|     5.668ns|      47|        8678
+  _inst_mcb_drp_clk_bufg_in = PERIOD        | HOLD        |     0.349ns|            |       0|           0
+    TIMEGRP         "ddr2_comp_ramComp_memc |             |            |            |        |            
+  3_infrastructure_inst_mcb_drp_clk_bufg_in |             |            |            |        |            
+  "         TS_clk / 1.5625 HIGH 50%        |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+* TS_ddr2_comp_ramComp_memc3_infrastructure | SETUP       |    -0.296ns|    10.536ns|       1|         296
+  _inst_clk0_bufg_in = PERIOD TIMEGRP       | HOLD        |     0.347ns|            |       0|           0
+     "ddr2_comp_ramComp_memc3_infrastructur |             |            |            |        |            
+  e_inst_clk0_bufg_in" TS_clk /         0.7 |             |            |            |        |            
+  8125 HIGH 50%                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+* TS_ddr2_comp_ramComp_memc3_infrastructure | MINPERIOD   |    -0.219ns|     1.499ns|       1|         219
+  _inst_clk_2x_0 = PERIOD TIMEGRP         " |             |            |            |        |            
+  ddr2_comp_ramComp_memc3_infrastructure_in |             |            |            |        |            
+  st_clk_2x_0" TS_clk / 6.25         HIGH 5 |             |            |            |        |            
+  0%                                        |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+* TS_ddr2_comp_ramComp_memc3_infrastructure | MINPERIOD   |    -0.219ns|     1.499ns|       1|         219
+  _inst_clk_2x_180 = PERIOD TIMEGRP         |             |            |            |        |            
+   "ddr2_comp_ramComp_memc3_infrastructure_ |             |            |            |        |            
+  inst_clk_2x_180" TS_clk / 6.25         PH |             |            |            |        |            
+  ASE 0.64 ns HIGH 50%                      |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_DVI_CLOCK0 = PERIOD TIMEGRP "DVI_CLOCK | MINLOWPULSE |     6.666ns|     3.334ns|       0|           0
+  0" 10 ns HIGH 50%                         |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_DVI_CLOCK1 = PERIOD TIMEGRP "DVI_CLOCK | MINLOWPULSE |     6.666ns|     3.334ns|       0|           0
+  1" 10 ns HIGH 50%                         |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_clk = PERIOD TIMEGRP "clk" 8 ns HIGH 5 | MINLOWPULSE |     2.660ns|     5.340ns|       0|           0
+  0%                                        |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_dvi_rx1_pllclk2 = PERIO | SETUP       |     0.405ns|     4.595ns|       0|           0
+  D TIMEGRP         "hdmiMatri_Comp_dvi_rx1 | HOLD        |     0.521ns|            |       0|           0
+  _pllclk2" TS_DVI_CLOCK1 / 2 HIGH 50%      |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_dvi_rx0_pllclk2 = PERIO | SETUP       |     0.713ns|     4.287ns|       0|           0
+  D TIMEGRP         "hdmiMatri_Comp_dvi_rx0 | HOLD        |     0.580ns|            |       0|           0
+  _pllclk2" TS_DVI_CLOCK0 / 2 HIGH 50%      |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_ifclk = PERIOD TIMEGRP "ifclk" 48 MHz  | SETUP       |     2.917ns|    14.998ns|       0|           0
+  HIGH 50%                                  | HOLD        |     0.105ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_tx_pllclk2_0 = PERIOD T | MINPERIOD   |     3.270ns|     1.730ns|       0|           0
+  IMEGRP "hdmiMatri_Comp_tx_pllclk2_0"      |             |            |            |        |            
+      TS_hdmiMatri_Comp_dvi_rx0_pllclk1 / 2 |             |            |            |        |            
+   HIGH 50%                                 |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_tx_pllclk2 = PERIOD TIM | MINPERIOD   |     4.423ns|     1.730ns|       0|           0
+  EGRP "hdmiMatri_Comp_tx_pllclk2"          |             |            |            |        |            
+  TS_pclk_tp / 2 HIGH 50%                   |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_ramra_0 = MAXDELAY FROM TIMEGRP "bramr | SETUP       |     6.260ns|     3.740ns|       0|           0
+  a_0" TO TIMEGRP "fddbgrp_0"         TS_DV | HOLD        |     1.346ns|            |       0|           0
+  I_CLOCK0                                  |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_img_clk = PERIOD TIMEGRP "img_clk_tnm" | MINPERIOD   |     6.876ns|     3.124ns|       0|           0
+   10 ns HIGH 50%                           |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_ramra_1 = MAXDELAY FROM TIMEGRP "bramr | SETUP       |     7.094ns|     2.906ns|       0|           0
+  a_1" TO TIMEGRP "fddbgrp_1"         TS_DV | HOLD        |     1.398ns|            |       0|           0
+  I_CLOCK1                                  |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_ramdo_0 = MAXDELAY FROM TIMEGRP "bramg | SETUP       |     7.153ns|     2.847ns|       0|           0
+  rp_0" TO TIMEGRP "fddbgrp_0"         TS_D | HOLD        |     0.567ns|            |       0|           0
+  VI_CLOCK0                                 |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_ramdo_1 = MAXDELAY FROM TIMEGRP "bramg | SETUP       |     7.678ns|     2.322ns|       0|           0
+  rp_1" TO TIMEGRP "fddbgrp_1"         TS_D | HOLD        |     0.470ns|            |       0|           0
+  VI_CLOCK1                                 |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_dvi_rx0_pllclk0 = PERIO | N/A         |         N/A|         N/A|     N/A|         N/A
+  D TIMEGRP         "hdmiMatri_Comp_dvi_rx0 |             |            |            |        |            
+  _pllclk0" TS_DVI_CLOCK0 / 10 HIGH 50%     |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_dvi_rx1_pllclk0 = PERIO | N/A         |         N/A|         N/A|     N/A|         N/A
+  D TIMEGRP         "hdmiMatri_Comp_dvi_rx1 |             |            |            |        |            
+  _pllclk0" TS_DVI_CLOCK1 / 10 HIGH 50%     |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  PATH "TS_tig2_path" TIG                   | SETUP       |         N/A|    11.926ns|     N/A|           0
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_tx_pllclk0 = PERIOD TIM | N/A         |         N/A|         N/A|     N/A|         N/A
+  EGRP "hdmiMatri_Comp_tx_pllclk0"          |             |            |            |        |            
+  TS_pclk_tp / 10 HIGH 50%                  |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_tx_pllclk0_0 = PERIOD T | N/A         |         N/A|         N/A|     N/A|         N/A
+  IMEGRP "hdmiMatri_Comp_tx_pllclk0_0"      |             |            |            |        |            
+      TS_hdmiMatri_Comp_dvi_rx0_pllclk1 / 1 |             |            |            |        |            
+  0 HIGH 50%                                |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_tx_pllclk0_1 = PERIOD T | N/A         |         N/A|         N/A|     N/A|         N/A
+  IMEGRP "hdmiMatri_Comp_tx_pllclk0_1"      |             |            |            |        |            
+      TS_hdmiMatri_Comp_dvi_rx1_pllclk1 / 1 |             |            |            |        |            
+  0 HIGH 50%                                |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  PATH "TS_tig1_path" TIG                   | SETUP       |         N/A|     0.886ns|     N/A|           0
+----------------------------------------------------------------------------------------------------------
+
+
+Derived Constraint Report
+Review Timing Report for more details on the following derived constraints.
+To create a Timing Report, run "trce -v 12 -fastpaths -o design_timing_report design.ncd design.pcf"
+or "Run Timing Analysis" from Timing Analyzer (timingan).
+Derived Constraints for TS_clk
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
+|           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|TS_clk                         |      8.000ns|      5.340ns|      9.369ns|            0|           76|            0|       246259|
+| TS_pclk_tp                    |     12.308ns|      6.573ns|      3.460ns|           26|            0|         2845|            0|
+|  TS_hdmiMatri_Comp_tx_pllclk0 |      1.231ns|          N/A|          N/A|            0|            0|            0|            0|
+|  TS_hdmiMatri_Comp_tx_pllclk2 |      6.154ns|      1.730ns|          N/A|            0|            0|            0|            0|
+| TS_ddr2_comp_ramComp_memc3_inf|      5.120ns|      5.668ns|          N/A|           47|            0|        34655|            0|
+| rastructure_inst_mcb_drp_clk_b|             |             |             |             |             |             |             |
+| ufg_in                        |             |             |             |             |             |             |             |
+| TS_ddr2_comp_ramComp_memc3_inf|      1.280ns|      1.499ns|          N/A|            1|            0|            0|            0|
+| rastructure_inst_clk_2x_180   |             |             |             |             |             |             |             |
+| TS_ddr2_comp_ramComp_memc3_inf|      1.280ns|      1.499ns|          N/A|            1|            0|            0|            0|
+| rastructure_inst_clk_2x_0     |             |             |             |             |             |             |             |
+| TS_ddr2_comp_ramComp_memc3_inf|     10.240ns|     10.536ns|          N/A|            1|            0|       208759|            0|
+| rastructure_inst_clk0_bufg_in |             |             |             |             |             |             |             |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+Derived Constraints for TS_DVI_CLOCK0
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
+|           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|TS_DVI_CLOCK0                  |     10.000ns|      3.334ns|      8.574ns|            0|           59|            0|         5457|
+| TS_ramdo_0                    |     10.000ns|      2.847ns|          N/A|            0|            0|           30|            0|
+| TS_ramra_0                    |     10.000ns|      3.740ns|          N/A|            0|            0|          120|            0|
+| TS_hdmiMatri_Comp_dvi_rx0_pllc|     10.000ns|      5.116ns|      3.460ns|           59|            0|         3759|            0|
+| lk1                           |             |             |             |             |             |             |             |
+|  TS_hdmiMatri_Comp_tx_pllclk0_|      1.000ns|          N/A|          N/A|            0|            0|            0|            0|
+|  0                            |             |             |             |             |             |             |             |
+|  TS_hdmiMatri_Comp_tx_pllclk2_|      5.000ns|      1.730ns|          N/A|            0|            0|            0|            0|
+|  0                            |             |             |             |             |             |             |             |
+| TS_hdmiMatri_Comp_dvi_rx0_pllc|      1.000ns|          N/A|          N/A|            0|            0|            0|            0|
+| lk0                           |             |             |             |             |             |             |             |
+| TS_hdmiMatri_Comp_dvi_rx0_pllc|      5.000ns|      4.287ns|          N/A|            0|            0|         1548|            0|
+| lk2                           |             |             |             |             |             |             |             |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+Derived Constraints for TS_DVI_CLOCK1
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
+|           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|TS_DVI_CLOCK1                  |     10.000ns|      3.334ns|      9.190ns|            0|           64|            0|        32421|
+| TS_ramdo_1                    |     10.000ns|      2.322ns|          N/A|            0|            0|           30|            0|
+| TS_ramra_1                    |     10.000ns|      2.906ns|          N/A|            0|            0|          120|            0|
+| TS_hdmiMatri_Comp_dvi_rx1_pllc|     10.000ns|      9.024ns|      8.216ns|           59|            5|        30485|          238|
+| lk1                           |             |             |             |             |             |             |             |
+|  TS_hdmiMatri_Comp_tx_pllclk0_|      1.000ns|          N/A|          N/A|            0|            0|            0|            0|
+|  1                            |             |             |             |             |             |             |             |
+|  TS_hdmiMatri_Comp_tx_pllclk2_|      5.000ns|      4.108ns|          N/A|            5|            0|          238|            0|
+|  1                            |             |             |             |             |             |             |             |
+| TS_hdmiMatri_Comp_dvi_rx1_pllc|      1.000ns|          N/A|          N/A|            0|            0|            0|            0|
+| lk0                           |             |             |             |             |             |             |             |
+| TS_hdmiMatri_Comp_dvi_rx1_pllc|      5.000ns|      4.595ns|          N/A|            0|            0|         1548|            0|
+| lk2                           |             |             |             |             |             |             |             |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+8 constraints not met.
+INFO:Timing:2761 - N/A entries in the Constraints List may indicate that the 
+   constraint is not analyzed due to the following: No paths covered by this 
+   constraint; Other constraints intersect with this constraint; or This 
+   constraint was disabled by a Path Tracing Control. Please run the Timespec 
+   Interaction Report (TSI) via command line (trce tsi) or Timing Analyzer GUI.
+
+
+Finished initial Timing Analysis.  REAL time: 30 secs 
+
+WARNING:Par:288 - The signal btnr_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal flagA_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal sw<0>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal sw<1>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal sw<2>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal sw<3>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal sw<4>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal sw<5>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal sw<6>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal sw<7>_IBUF has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM23_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM16_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM15_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM21_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM24_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM13_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM18_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM2_RA
+   MD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM1_RA
+   MD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM5_RA
+   MD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM8_RA
+   MD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM3_RA
+   MD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM26_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM27_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM25_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM22_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM6_RA
+   MD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM7_RA
+   MD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM14_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM19_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM28_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM20_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM11_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM10_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM9_RA
+   MD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM30_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM32_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM29_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM4_RA
+   MD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM17_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM31_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM12_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM51_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM55_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM33_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM36_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM60_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM63_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM50_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM52_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM34_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM62_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM61_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM64_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM49_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM46_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM59_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM57_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM47_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM41_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM56_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM53_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM58_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM37_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM40_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM35_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM48_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM45_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM42_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM43_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM54_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM38_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM39_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal
+   usb_comp/cdc_in_comp/cdcfifo_comp/U0/xst_fifo_generator/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm/Mram_RAM44_R
+   AMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ddr2_comp/ramComp/memc3_wrapper_inst/memc3_mcb_raw_wrapper_inst/uo_data<7> has no load. 
+   PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ddr2_comp/ramComp/memc3_wrapper_inst/memc3_mcb_raw_wrapper_inst/uo_data<6> has no load. 
+   PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ddr2_comp/ramComp/memc3_wrapper_inst/memc3_mcb_raw_wrapper_inst/uo_data<5> has no load. 
+   PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ddr2_comp/ramComp/memc3_wrapper_inst/memc3_mcb_raw_wrapper_inst/uo_data<4> has no load. 
+   PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ddr2_comp/ramComp/memc3_wrapper_inst/memc3_mcb_raw_wrapper_inst/uo_data<3> has no load. 
+   PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ddr2_comp/ramComp/memc3_wrapper_inst/memc3_mcb_raw_wrapper_inst/uo_data<2> has no load. 
+   PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ddr2_comp/ramComp/memc3_wrapper_inst/memc3_mcb_raw_wrapper_inst/uo_data<1> has no load. 
+   PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ddr2_comp/ramComp/memc3_wrapper_inst/memc3_mcb_raw_wrapper_inst/uo_data<0> has no load. 
+   PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ddr2_comp/ramComp/memc3_wrapper_inst/memc3_mcb_raw_wrapper_inst/uo_data_valid has no load. 
+   PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ddr2_comp/ramComp/memc3_wrapper_inst/memc3_mcb_raw_wrapper_inst/uo_cmd_ready_in has no
+   load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ddr2_comp/ramComp/memc3_wrapper_inst/memc3_mcb_raw_wrapper_inst/uo_cal_start has no load. 
+   PAR will not attempt to route this signal.
+Starting Router
+
+
+Phase  1  : 68353 unrouted;      REAL time: 32 secs 
+
+Phase  2  : 56634 unrouted;      REAL time: 43 secs 
+
+Phase  3  : 21209 unrouted;      REAL time: 1 mins 51 secs 
+
+Phase  4  : 21246 unrouted; (Setup:673, Hold:391706, Component Switching Limit:438)     REAL time: 1 mins 58 secs 
+
+Updating file: hdmi2usb.ncd with current fully routed design.
+
+Phase  5  : 0 unrouted; (Setup:757, Hold:412139, Component Switching Limit:438)     REAL time: 4 mins 2 secs 
+
+Phase  6  : 0 unrouted; (Setup:666, Hold:412196, Component Switching Limit:438)     REAL time: 4 mins 30 secs 
+
+Updating file: hdmi2usb.ncd with current fully routed design.
+
+Phase  7  : 0 unrouted; (Setup:317, Hold:412196, Component Switching Limit:438)     REAL time: 7 mins 41 secs 
+
+Phase  8  : 0 unrouted; (Setup:317, Hold:412196, Component Switching Limit:438)     REAL time: 7 mins 41 secs 
+
+Phase  9  : 0 unrouted; (Setup:317, Hold:412196, Component Switching Limit:438)     REAL time: 7 mins 41 secs 
+WARNING:Route:466 - Unusually high hold time violation detected among 119 connections. The top 20 such instances are
+   printed below. The router will continue and try to fix it
+	img_sel_comp/resX_H1_q<3>:AQ -> resx<3>:A6 -3923
+	img_sel_comp/resX_H1_q<11>:AQ -> resx<11>:A6 -3866
+	img_sel_comp/resY_H1_q<15>:CQ -> resy<15>:C6 -3863
+	img_sel_comp/resY_H1_q<15>:BQ -> resy<15>:B6 -3863
+	img_sel_comp/resY_H1_q<15>:AQ -> resy<15>:A6 -3798
+	img_sel_comp/resY_H1_q<15>:DQ -> resy<15>:D6 -3777
+	img_sel_comp/resX_H1_q<3>:DQ -> resx<3>:D6 -3737
+	img_sel_comp/resX_H1_q<11>:DQ -> resx<11>:D6 -3737
+	img_sel_comp/resX_H1_q<15>:DQ -> resx<15>:D6 -3717
+	img_sel_comp/resX_H1_q<15>:BQ -> resx<15>:B6 -3694
+	img_sel_comp/rgb_H1_q<7>:BMUX -> resy<3>:B6 -3673
+	img_sel_comp/resX_H1_q<3>:CQ -> resx<3>:C6 -3640
+	img_sel_comp/resX_H0_q<7>:DMUX -> resx<11>:D5 -3629
+	img_sel_comp/resX_H1_q<3>:AMUX -> resx<7>:A6 -3628
+	img_sel_comp/rgb_H0_q<19>:AQ -> img_sel_comp/rgb_i_16_BRB3:BX -3611
+	img_sel_comp/rgb_H0_q<23>:CQ -> img_sel_comp/rgb_i_22_BRB3:BX -3598
+	img_sel_comp/resX_H1_q<3>:BQ -> resx<3>:B6 -3596
+	img_sel_comp/resX_H0_q<7>:AMUX -> resx<11>:A5 -3576
+	img_sel_comp/rgb_H0_q<7>:AQ -> img_sel_comp/rgb_i_4_BRB3:BX -3572
+	img_sel_comp/resX_H0_q<3>:AQ -> resx<3>:A5 -3568
+
+
+Phase 10  : 0 unrouted; (Setup:317, Hold:0, Component Switching Limit:438)     REAL time: 7 mins 46 secs 
+
+Phase 11  : 0 unrouted; (Setup:264, Hold:0, Component Switching Limit:438)     REAL time: 7 mins 53 secs 
+Total REAL time to Router completion: 7 mins 53 secs 
+Total CPU time to Router completion: 8 mins 20 secs 
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Generating "PAR" statistics.
+
+**************************
+Generating Clock Report
+**************************
+WARNING:ParHelpers:79 - 
+   The following Clock signals are not routed on the dedicated
+   global clock routing resources. This will usually result in
+   longer delays and higher skew for the clock load pins. This could
+   be the result of incorrect clock placement, more than 8 clocks
+   feeding logic in a single quadrant of the device, or incorrect
+   logic partitioning into the quadrant(s). Check the timing report
+   to verify the delay and skew for this net
+Net Name: pclk_H1
+
++---------------------+--------------+------+------+------------+-------------+
+|        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
++---------------------+--------------+------+------+------------+-------------+
+|              pclk_H | BUFGMUX_X3Y13| No   |  221 |  0.067     |  1.279      |
++---------------------+--------------+------+------+------------+-------------+
+|             pclk_H0 |  BUFGMUX_X2Y4| No   |  136 |  0.064     |  1.275      |
++---------------------+--------------+------+------+------------+-------------+
+|             img_clk | BUFGMUX_X2Y10| No   | 1894 |  0.067     |  1.278      |
++---------------------+--------------+------+------+------------+-------------+
+|hdmiMatri_Comp/tx_pc |              |      |      |            |             |
+|                lkx2 |  BUFGMUX_X2Y9| No   |   49 |  0.253     |  1.473      |
++---------------------+--------------+------+------+------------+-------------+
+|hdmiMatri_Comp/dvi_r |              |      |      |            |             |
+|           x1/pclkx2 | BUFGMUX_X3Y16| No   |   73 |  0.242     |  1.456      |
++---------------------+--------------+------+------+------------+-------------+
+|hdmiMatri_Comp/dvi_r |              |      |      |            |             |
+|           x0/pclkx2 |  BUFGMUX_X3Y8| No   |   80 |  0.184     |  1.396      |
++---------------------+--------------+------+------+------------+-------------+
+|ddr2_comp/ramComp/c3 |              |      |      |            |             |
+|        _mcb_drp_clk | BUFGMUX_X2Y12| No   |  151 |  0.066     |  1.299      |
++---------------------+--------------+------+------+------------+-------------+
+|             pclk_H1 |         Local|      |  133 |  0.062     |  1.274      |
++---------------------+--------------+------+------+------------+-------------+
+|          ifclk_IBUF |         Local|      |  251 | 10.749     | 13.447      |
++---------------------+--------------+------+------+------------+-------------+
+|             uvc_rst |         Local|      |   75 |  0.420     |  1.888      |
++---------------------+--------------+------+------+------------+-------------+
+|                 rst |         Local|      |  150 |  2.641     | 10.148      |
++---------------------+--------------+------+------+------------+-------------+
+|             pclk_tp |         Local|      |   24 |  0.011     |  0.836      |
++---------------------+--------------+------+------+------------+-------------+
+|hdmiMatri_Comp/tx1_p |              |      |      |            |             |
+|              clkx10 |         Local|      |    8 |  0.000     |  1.463      |
++---------------------+--------------+------+------+------------+-------------+
+|hdmiMatri_Comp/tx0_p |              |      |      |            |             |
+|              clkx10 |         Local|      |    8 |  0.000     |  1.463      |
++---------------------+--------------+------+------+------------+-------------+
+|hdmiMatri_Comp/dvi_r |              |      |      |            |             |
+|          x1/pclkx10 |         Local|      |   12 |  0.029     |  1.502      |
++---------------------+--------------+------+------+------------+-------------+
+|hdmiMatri_Comp/dvi_r |              |      |      |            |             |
+|          x0/pclkx10 |         Local|      |   12 |  0.038     |  1.552      |
++---------------------+--------------+------+------+------------+-------------+
+|ddr2_comp/ramComp/c3 |              |      |      |            |             |
+|          _sysclk_2x |         Local|      |   34 |  0.571     |  1.543      |
++---------------------+--------------+------+------+------------+-------------+
+|ddr2_comp/ramComp/c3 |              |      |      |            |             |
+|      _sysclk_2x_180 |         Local|      |   37 |  0.590     |  1.562      |
++---------------------+--------------+------+------+------------+-------------+
+|ddr2_comp/ramComp/me |              |      |      |            |             |
+|mc3_wrapper_inst/mem |              |      |      |            |             |
+|c3_mcb_raw_wrapper_i |              |      |      |            |             |
+|     nst/ioi_drp_clk |         Local|      |   22 |  0.000     |  0.002      |
++---------------------+--------------+------+------+------------+-------------+
+|ddr2_comp/ramComp/me |              |      |      |            |             |
+|mc3_wrapper_inst/mem |              |      |      |            |             |
+|c3_mcb_raw_wrapper_i |              |      |      |            |             |
+|nst/idelay_dqs_ioi_m |              |      |      |            |             |
+|                     |         Local|      |    1 |  0.000     |  0.002      |
++---------------------+--------------+------+------+------------+-------------+
+|ddr2_comp/ramComp/me |              |      |      |            |             |
+|mc3_wrapper_inst/mem |              |      |      |            |             |
+|c3_mcb_raw_wrapper_i |              |      |      |            |             |
+|nst/idelay_udqs_ioi_ |              |      |      |            |             |
+|                   m |         Local|      |    1 |  0.000     |  0.002      |
++---------------------+--------------+------+------+------------+-------------+
+|ddr2_comp/ramComp/me |              |      |      |            |             |
+|mc3_wrapper_inst/mem |              |      |      |            |             |
+|c3_mcb_raw_wrapper_i |              |      |      |            |             |
+|nst/idelay_dqs_ioi_s |              |      |      |            |             |
+|                     |         Local|      |    1 |  0.000     |  0.002      |
++---------------------+--------------+------+------+------------+-------------+
+|ddr2_comp/ramComp/me |              |      |      |            |             |
+|mc3_wrapper_inst/mem |              |      |      |            |             |
+|c3_mcb_raw_wrapper_i |              |      |      |            |             |
+|nst/idelay_udqs_ioi_ |              |      |      |            |             |
+|                   s |         Local|      |    1 |  0.000     |  0.002      |
++---------------------+--------------+------+------+------------+-------------+
+|    jpeg_encoder/rst |         Local|      |  997 |  4.671     |  7.284      |
++---------------------+--------------+------+------+------------+-------------+
+
+* Net Skew is the difference between the minimum and maximum routing
+only delays for the net. Note this is different from Clock Skew which
+is reported in TRCE timing report. Clock Skew is the difference between
+the minimum and maximum path delays which includes logic delays.
+
+* The fanout is the number of component pins not the individual BEL loads,
+for example SLICE loads not FF loads.
+
+Timing Score: 702 (Setup: 264, Hold: 0, Component Switching Limit: 438)
+
+WARNING:Par:468 - Your design did not meet timing.  The following are some suggestions to assist you to meet timing in
+   your design.
+
+   Review the timing report using Timing Analyzer (In ISE select "Post-Place &
+   Route Static Timing Report"). Go to the failing constraint(s) and evaluate the failing paths for each constraint.
+
+   Try the Design Goal and Strategies for Timing Performance(In ISE select Project -> Design Goals & Strategies) to
+   ensure the best options are set in the tools for timing closure.
+
+   Use the Xilinx "SmartXplorer" script to try special combinations of
+   options known to produce very good results.
+
+   Visit the Xilinx technical support web at http://support.xilinx.com and go to
+   either "Troubleshoot->Tech Tips->Timing & Constraints" or "
+   TechXclusives->Timing Closure" for tips and suggestions for meeting timing
+   in your design.
+
+Number of Timing Constraints that were not applied: 13
+
+Asterisk (*) preceding a constraint indicates it was not met.
+   This may be due to a setup or hold violation.
+
+----------------------------------------------------------------------------------------------------------
+  Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
+                                            |             |    Slack   | Achievable | Errors |    Score   
+----------------------------------------------------------------------------------------------------------
+* TS_ddr2_comp_ramComp_memc3_infrastructure | SETUP       |    -0.264ns|     5.384ns|       1|         264
+  _inst_mcb_drp_clk_bufg_in = PERIOD        | HOLD        |     0.245ns|            |       0|           0
+    TIMEGRP         "ddr2_comp_ramComp_memc |             |            |            |        |            
+  3_infrastructure_inst_mcb_drp_clk_bufg_in |             |            |            |        |            
+  "         TS_clk / 1.5625 HIGH 50%        |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+* TS_ddr2_comp_ramComp_memc3_infrastructure | MINPERIOD   |    -0.219ns|     1.499ns|       1|         219
+  _inst_clk_2x_0 = PERIOD TIMEGRP         " |             |            |            |        |            
+  ddr2_comp_ramComp_memc3_infrastructure_in |             |            |            |        |            
+  st_clk_2x_0" TS_clk / 6.25         HIGH 5 |             |            |            |        |            
+  0%                                        |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+* TS_ddr2_comp_ramComp_memc3_infrastructure | MINPERIOD   |    -0.219ns|     1.499ns|       1|         219
+  _inst_clk_2x_180 = PERIOD TIMEGRP         |             |            |            |        |            
+   "ddr2_comp_ramComp_memc3_infrastructure_ |             |            |            |        |            
+  inst_clk_2x_180" TS_clk / 6.25         PH |             |            |            |        |            
+  ASE 0.64 ns HIGH 50%                      |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_ddr2_comp_ramComp_memc3_infrastructure | SETUP       |     0.047ns|    10.193ns|       0|           0
+  _inst_clk0_bufg_in = PERIOD TIMEGRP       | HOLD        |     0.243ns|            |       0|           0
+     "ddr2_comp_ramComp_memc3_infrastructur |             |            |            |        |            
+  e_inst_clk0_bufg_in" TS_clk /         0.7 |             |            |            |        |            
+  8125 HIGH 50%                             |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_dvi_rx1_pllclk1 = PERIO | SETUP       |     0.530ns|     9.470ns|       0|           0
+  D TIMEGRP         "hdmiMatri_Comp_dvi_rx1 | HOLD        |     0.229ns|            |       0|           0
+  _pllclk1" TS_DVI_CLOCK1 HIGH 50%          |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_DVI_CLOCK0 = PERIOD TIMEGRP "DVI_CLOCK | MINLOWPULSE |     6.666ns|     3.334ns|       0|           0
+  0" 10 ns HIGH 50%                         |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_DVI_CLOCK1 = PERIOD TIMEGRP "DVI_CLOCK | MINLOWPULSE |     6.666ns|     3.334ns|       0|           0
+  1" 10 ns HIGH 50%                         |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_dvi_rx0_pllclk1 = PERIO | SETUP       |     2.241ns|     5.518ns|       0|           0
+  D TIMEGRP         "hdmiMatri_Comp_dvi_rx0 | HOLD        |     0.145ns|            |       0|           0
+  _pllclk1" TS_DVI_CLOCK0 HIGH 50%          |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_pclk_tp = PERIOD TIMEGRP "pclk_tp" TS_ | SETUP       |     5.532ns|     6.775ns|       0|           0
+  clk / 0.65 HIGH 50%                       | HOLD        |     0.014ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+  TS_clk = PERIOD TIMEGRP "clk" 8 ns HIGH 5 | MINLOWPULSE |     2.660ns|     5.340ns|       0|           0
+  0%                                        |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_dvi_rx1_pllclk2 = PERIO | SETUP       |     0.441ns|     4.559ns|       0|           0
+  D TIMEGRP         "hdmiMatri_Comp_dvi_rx1 | HOLD        |     0.391ns|            |       0|           0
+  _pllclk2" TS_DVI_CLOCK1 / 2 HIGH 50%      |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_tx_pllclk2_1 = PERIOD T | SETUP       |     0.542ns|     4.458ns|       0|           0
+  IMEGRP "hdmiMatri_Comp_tx_pllclk2_1"      | HOLD        |     0.086ns|            |       0|           0
+      TS_hdmiMatri_Comp_dvi_rx1_pllclk1 / 2 |             |            |            |        |            
+   HIGH 50%                                 |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_dvi_rx0_pllclk2 = PERIO | SETUP       |     0.978ns|     4.022ns|       0|           0
+  D TIMEGRP         "hdmiMatri_Comp_dvi_rx0 | HOLD        |     0.289ns|            |       0|           0
+  _pllclk2" TS_DVI_CLOCK0 / 2 HIGH 50%      |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_ifclk = PERIOD TIMEGRP "ifclk" 48 MHz  | SETUP       |     1.920ns|    16.993ns|       0|           0
+  HIGH 50%                                  | HOLD        |     0.133ns|            |       0|           0
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_tx_pllclk2_0 = PERIOD T | MINPERIOD   |     3.270ns|     1.730ns|       0|           0
+  IMEGRP "hdmiMatri_Comp_tx_pllclk2_0"      |             |            |            |        |            
+      TS_hdmiMatri_Comp_dvi_rx0_pllclk1 / 2 |             |            |            |        |            
+   HIGH 50%                                 |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_tx_pllclk2 = PERIOD TIM | MINPERIOD   |     4.423ns|     1.730ns|       0|           0
+  EGRP "hdmiMatri_Comp_tx_pllclk2"          |             |            |            |        |            
+  TS_pclk_tp / 2 HIGH 50%                   |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_ramra_0 = MAXDELAY FROM TIMEGRP "bramr | SETUP       |     5.896ns|     4.104ns|       0|           0
+  a_0" TO TIMEGRP "fddbgrp_0"         TS_DV | HOLD        |     0.851ns|            |       0|           0
+  I_CLOCK0                                  |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_ramra_1 = MAXDELAY FROM TIMEGRP "bramr | SETUP       |     6.490ns|     3.510ns|       0|           0
+  a_1" TO TIMEGRP "fddbgrp_1"         TS_DV | HOLD        |     1.001ns|            |       0|           0
+  I_CLOCK1                                  |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_img_clk = PERIOD TIMEGRP "img_clk_tnm" | MINPERIOD   |     6.876ns|     3.124ns|       0|           0
+   10 ns HIGH 50%                           |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_ramdo_0 = MAXDELAY FROM TIMEGRP "bramg | SETUP       |     7.126ns|     2.874ns|       0|           0
+  rp_0" TO TIMEGRP "fddbgrp_0"         TS_D | HOLD        |     0.352ns|            |       0|           0
+  VI_CLOCK0                                 |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_ramdo_1 = MAXDELAY FROM TIMEGRP "bramg | SETUP       |     7.410ns|     2.590ns|       0|           0
+  rp_1" TO TIMEGRP "fddbgrp_1"         TS_D | HOLD        |     0.328ns|            |       0|           0
+  VI_CLOCK1                                 |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_dvi_rx0_pllclk0 = PERIO | N/A         |         N/A|         N/A|     N/A|         N/A
+  D TIMEGRP         "hdmiMatri_Comp_dvi_rx0 |             |            |            |        |            
+  _pllclk0" TS_DVI_CLOCK0 / 10 HIGH 50%     |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  PATH "TS_tig1_path" TIG                   | SETUP       |         N/A|     0.842ns|     N/A|           0
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_dvi_rx1_pllclk0 = PERIO | N/A         |         N/A|         N/A|     N/A|         N/A
+  D TIMEGRP         "hdmiMatri_Comp_dvi_rx1 |             |            |            |        |            
+  _pllclk0" TS_DVI_CLOCK1 / 10 HIGH 50%     |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_tx_pllclk0 = PERIOD TIM | N/A         |         N/A|         N/A|     N/A|         N/A
+  EGRP "hdmiMatri_Comp_tx_pllclk0"          |             |            |            |        |            
+  TS_pclk_tp / 10 HIGH 50%                  |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_tx_pllclk0_0 = PERIOD T | N/A         |         N/A|         N/A|     N/A|         N/A
+  IMEGRP "hdmiMatri_Comp_tx_pllclk0_0"      |             |            |            |        |            
+      TS_hdmiMatri_Comp_dvi_rx0_pllclk1 / 1 |             |            |            |        |            
+  0 HIGH 50%                                |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  TS_hdmiMatri_Comp_tx_pllclk0_1 = PERIOD T | N/A         |         N/A|         N/A|     N/A|         N/A
+  IMEGRP "hdmiMatri_Comp_tx_pllclk0_1"      |             |            |            |        |            
+      TS_hdmiMatri_Comp_dvi_rx1_pllclk1 / 1 |             |            |            |        |            
+  0 HIGH 50%                                |             |            |            |        |            
+----------------------------------------------------------------------------------------------------------
+  PATH "TS_tig2_path" TIG                   | SETUP       |         N/A|    12.292ns|     N/A|           0
+----------------------------------------------------------------------------------------------------------
+
+
+Derived Constraint Report
+Review Timing Report for more details on the following derived constraints.
+To create a Timing Report, run "trce -v 12 -fastpaths -o design_timing_report design.ncd design.pcf"
+or "Run Timing Analysis" from Timing Analyzer (timingan).
+Derived Constraints for TS_clk
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
+|           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|TS_clk                         |      8.000ns|      5.340ns|      9.369ns|            0|            3|            0|       246259|
+| TS_pclk_tp                    |     12.308ns|      6.775ns|      3.460ns|            0|            0|         2845|            0|
+|  TS_hdmiMatri_Comp_tx_pllclk0 |      1.231ns|          N/A|          N/A|            0|            0|            0|            0|
+|  TS_hdmiMatri_Comp_tx_pllclk2 |      6.154ns|      1.730ns|          N/A|            0|            0|            0|            0|
+| TS_ddr2_comp_ramComp_memc3_inf|      5.120ns|      5.384ns|          N/A|            1|            0|        34655|            0|
+| rastructure_inst_mcb_drp_clk_b|             |             |             |             |             |             |             |
+| ufg_in                        |             |             |             |             |             |             |             |
+| TS_ddr2_comp_ramComp_memc3_inf|      1.280ns|      1.499ns|          N/A|            1|            0|            0|            0|
+| rastructure_inst_clk_2x_180   |             |             |             |             |             |             |             |
+| TS_ddr2_comp_ramComp_memc3_inf|      1.280ns|      1.499ns|          N/A|            1|            0|            0|            0|
+| rastructure_inst_clk_2x_0     |             |             |             |             |             |             |             |
+| TS_ddr2_comp_ramComp_memc3_inf|     10.240ns|     10.193ns|          N/A|            0|            0|       208759|            0|
+| rastructure_inst_clk0_bufg_in |             |             |             |             |             |             |             |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+Derived Constraints for TS_DVI_CLOCK0
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
+|           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|TS_DVI_CLOCK0                  |     10.000ns|      3.334ns|      8.044ns|            0|            0|            0|         5457|
+| TS_ramdo_0                    |     10.000ns|      2.874ns|          N/A|            0|            0|           30|            0|
+| TS_ramra_0                    |     10.000ns|      4.104ns|          N/A|            0|            0|          120|            0|
+| TS_hdmiMatri_Comp_dvi_rx0_pllc|     10.000ns|      5.518ns|      3.460ns|            0|            0|         3759|            0|
+| lk1                           |             |             |             |             |             |             |             |
+|  TS_hdmiMatri_Comp_tx_pllclk0_|      1.000ns|          N/A|          N/A|            0|            0|            0|            0|
+|  0                            |             |             |             |             |             |             |             |
+|  TS_hdmiMatri_Comp_tx_pllclk2_|      5.000ns|      1.730ns|          N/A|            0|            0|            0|            0|
+|  0                            |             |             |             |             |             |             |             |
+| TS_hdmiMatri_Comp_dvi_rx0_pllc|      1.000ns|          N/A|          N/A|            0|            0|            0|            0|
+| lk0                           |             |             |             |             |             |             |             |
+| TS_hdmiMatri_Comp_dvi_rx0_pllc|      5.000ns|      4.022ns|          N/A|            0|            0|         1548|            0|
+| lk2                           |             |             |             |             |             |             |             |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+Derived Constraints for TS_DVI_CLOCK1
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
+|           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|TS_DVI_CLOCK1                  |     10.000ns|      3.334ns|      9.470ns|            0|            0|            0|        32421|
+| TS_ramdo_1                    |     10.000ns|      2.590ns|          N/A|            0|            0|           30|            0|
+| TS_ramra_1                    |     10.000ns|      3.510ns|          N/A|            0|            0|          120|            0|
+| TS_hdmiMatri_Comp_dvi_rx1_pllc|     10.000ns|      9.470ns|      8.916ns|            0|            0|        30485|          238|
+| lk1                           |             |             |             |             |             |             |             |
+|  TS_hdmiMatri_Comp_tx_pllclk0_|      1.000ns|          N/A|          N/A|            0|            0|            0|            0|
+|  1                            |             |             |             |             |             |             |             |
+|  TS_hdmiMatri_Comp_tx_pllclk2_|      5.000ns|      4.458ns|          N/A|            0|            0|          238|            0|
+|  1                            |             |             |             |             |             |             |             |
+| TS_hdmiMatri_Comp_dvi_rx1_pllc|      1.000ns|          N/A|          N/A|            0|            0|            0|            0|
+| lk0                           |             |             |             |             |             |             |             |
+| TS_hdmiMatri_Comp_dvi_rx1_pllc|      5.000ns|      4.559ns|          N/A|            0|            0|         1548|            0|
+| lk2                           |             |             |             |             |             |             |             |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+3 constraints not met.
+INFO:Timing:2761 - N/A entries in the Constraints List may indicate that the 
+   constraint is not analyzed due to the following: No paths covered by this 
+   constraint; Other constraints intersect with this constraint; or This 
+   constraint was disabled by a Path Tracing Control. Please run the Timespec 
+   Interaction Report (TSI) via command line (trce tsi) or Timing Analyzer GUI.
+
+
+Generating Pad Report.
+
+All signals are completely routed.
+
+WARNING:Par:283 - There are 85 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
+
+Total REAL time to PAR completion: 7 mins 59 secs 
+Total CPU time to PAR completion: 8 mins 25 secs 
+
+Peak Memory Usage:  772 MB
+
+Placer: Placement generated during map.
+Routing: Completed - No errors found.
+Timing: Completed - 5 errors found.
+
+Number of error messages: 0
+Number of warning messages: 92
+Number of info messages: 1
+
+Writing design to file hdmi2usb.ncd
+
+
+
+PAR done!
+
+Command Line : 
+-------------
+trce C:\HDMI2USB-master\ise\smartxplorer_results\run4\hdmi2usb.ngd C:\HDMI2USB-master\ise\smartxplorer_results\run4\hdmi2usb.pcf -xml C:\HDMI2USB-master\ise\smartxplorer_results\run4\hdmi2usb.twx -v 3 -s 3 -n 3 -fastpaths -o C:\HDMI2USB-master\ise\smartxplorer_results\run4\hdmi2usb.twr
+
+Release 14.2 - Trace  (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+
+Loading device for application Rf_Device from file '6slx45.nph' in environment
+C:\Xilinx\14.2\ISE_DS\ISE\.
+   "hdmi2usb" is an NCD, version 3.2, device xc6slx45, package csg324, speed -3
+WARNING:Timing:3159 - The DCM, testpattern_comp/patternClk_com/dcm_clkgen_inst,
+   has the attribute DFS_OSCILLATOR_MODE not set to PHASE_FREQ_LOCK. No phase
+   relationship exists between the input clock and CLKFX or CLKFX180 outputs of
+   this DCM. Data paths between these clock domains must be constrained using
+   FROM/TO constraints.
+INFO:Timing:3386 - Intersecting Constraints found and resolved.  For more
+   information, see the TSI report.  Please consult the Xilinx Command Line
+   Tools User Guide for information on generating a TSI report.
+--------------------------------------------------------------------------------
+Release 14.2 Trace  (nt64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\14.2\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe
+C:\HDMI2USB-master\ise\smartxplorer_results\run4\hdmi2usb.ncd
+C:\HDMI2USB-master\ise\smartxplorer_results\run4\hdmi2usb.pcf -xml
+C:\HDMI2USB-master\ise\smartxplorer_results\run4\hdmi2usb.twx -v 3 -s 3 -n 3
+-fastpaths -o C:\HDMI2USB-master\ise\smartxplorer_results\run4\hdmi2usb.twr
+
+
+Design file:              hdmi2usb.ncd
+Physical constraint file: hdmi2usb.pcf
+Device,speed:             xc6slx45,-3 (PRODUCTION 1.22 2012-07-09)
+Report level:             verbose report
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths option. All paths that are not constrained will be reported in
+   the unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on a 50 Ohm transmission line loading model.  For the details of
+   this model, and for more information on accounting for different loading conditions, please see the device datasheet.
+
+
+Timing summary:
+---------------
+
+Timing errors: 3  Score: 702 (Setup/Max: 264, Hold: 0, Component Switching
+Limit: 438)
+
+Constraints cover 296082 paths, 0 nets, and 56959 connections
+
+Design statistics:
+   Minimum period:  16.993ns (Maximum frequency:  58.848MHz)
+   Maximum path delay from/to any node:   4.104ns
+
+
+Analysis completed Wed May 21 16:14:37 2014
+--------------------------------------------------------------------------------
+
+Generating Report ...
+
+Number of warnings: 1
+Number of info messages: 4
+Total time: 37 secs 

@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/ajit/Documents/main/HDMI2USB-master/ise/hdmi2usb.ncd
+OUTFILE=/home/ajit/Documents/main/HDMI2USB-master/ise/hdmi2usb.bit
+FAMILY=Spartan6
+PART=xc6slx45-3csg324
+WORKINGDIR=/home/ajit/Documents/main/HDMI2USB-master/ise
+LICENSE=WebPack
+USER_INFO=210694210_0_0_806

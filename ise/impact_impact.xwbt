@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=/home/ajit/Documents/Untitled Folder/HDMI2USB-master/ise/impact.xsl
+OUTFILE=/home/ajit/Documents/Untitled Folder/HDMI2USB-master/ise/impact.xsl
+FAMILY=Single
+PART=Single
+WORKINGDIR=/home/ajit/Documents/Untitled Folder/HDMI2USB-master/ise
+LICENSE=iMPACT
+USER_INFO=iMPACT

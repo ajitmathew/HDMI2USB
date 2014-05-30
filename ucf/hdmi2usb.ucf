@@ -13,9 +13,6 @@ TIMESPEC TS_clk = PERIOD "clk" 10 ns HIGH 50%;
 #
 #INST "img_sel_comp/BUFGMUX_HDMI" TIG;
 #INST "img_sel_comp/BUFGMUX_PCLK" TIG;
-
-
-
 ########################################
 # LEDs
 ########################################
@@ -65,7 +62,6 @@ NET "scl_pc1"  LOC = "C13" |pullup |IOSTANDARD = LVCMOS33 ; # for future use not
 NET "sda_pc1"  LOC = "A13" |pullup |IOSTANDARD = LVCMOS33 ; # for future use not possible with atlys bz of no physical pins connected
 #NET "scl_lcd1"  LOC = "C13" |IOSTANDARD = LVCMOS33 ;
 #NET "sda_lcd1"  LOC = "A13" |pullup |IOSTANDARD = LVCMOS33 ;
-
 #########################################################################################################
 #
 # Constraint for RX0
@@ -288,3 +284,8 @@ INST "ddr2_comp/ramComp/memc3_wrapper_inst/memc3_mcb_raw_wrapper_inst/gen_term_c
 ###NET "image_buffer_comp/ramComp/memc3_wrapper_inst/memc3_mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/SELFREFRESH_MCB_REQ" TIG;
 NET "ddr2_comp/ramComp/memc3_wrapper_inst/memc3_mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/CKE_Train" TIG; ## This path exists for DDR2 only
 #########################################################################################################
+#NET "img_clk" TNM="img_clk_tnm";
+#NET "img_sel_comp/hdmi_clk" TNM="hdmi_clk_tnm";
+#TIMESPEC TS_tig1 = FROM img_clk_tnm TO hdmi_clk_tnm TIG;
+#TIMESPEC TS_tig2 = FROM hdmi_clk_tnm TO img_clk_tnm TIG;
+#>DISABLED<#TIMESPEC TS_img_clk = PERIOD "img_clk_tnm" 10 ns HIGH 50%;

@@ -1,0 +1,32 @@
+Running: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/fuse -intstyle ise -incremental -lib secureip -o /home/ajit/Documents/main/HDMI2USB-master/ise/top_isim_beh.exe -prj /home/ajit/Documents/main/HDMI2USB-master/ise/top_beh.prj work.top 
+ISim P.20131013 (signature 0xfbc00daa)
+Number of CPUs detected in this system: 4
+Turning on mult-threading, number of parallel sub-compilation jobs: 8 
+Determining compilation order of HDL files
+Parsing VHDL file "/home/ajit/Documents/main/HDMI2USB-master/ise/../hdl/jpeg_encoder/Top.vhd" into library work
+Parsing VHDL file "/home/ajit/Documents/main/HDMI2USB-master/ise/../ipcore_dir/bytefifo_synth.vhd" into library work
+Parsing VHDL file "/home/ajit/Documents/main/HDMI2USB-master/ise/../ipcore_dir/ddr2ram/user_design/rtl/iodrp_controller.vhd" into library work
+Parsing VHDL file "/home/ajit/Documents/main/HDMI2USB-master/ise/../ipcore_dir/ddr2ram/user_design/rtl/iodrp_mcb_controller.vhd" into library work
+Parsing VHDL file "/home/ajit/Documents/main/HDMI2USB-master/ise/../ipcore_dir/ddr2ram/user_design/rtl/mcb_raw_wrapper.vhd" into library work
+Parsing VHDL file "/home/ajit/Documents/main/HDMI2USB-master/ise/../ipcore_dir/ddr2ram/user_design/rtl/mcb_soft_calibration.vhd" into library work
+Parsing VHDL file "/home/ajit/Documents/main/HDMI2USB-master/ise/../ipcore_dir/ddr2ram/user_design/rtl/mcb_soft_calibration_top.vhd" into library work
+Parsing VHDL file "/home/ajit/Documents/main/HDMI2USB-master/ise/../ipcore_dir/ddr2ram/user_design/rtl/memc3_infrastructure.vhd" into library work
+Parsing VHDL file "/home/ajit/Documents/main/HDMI2USB-master/ise/../ipcore_dir/ddr2ram/user_design/rtl/memc3_wrapper.vhd" into library work
+Parsing VHDL file "/home/ajit/Documents/main/HDMI2USB-master/ise/../ipcore_dir/patternClk/example_design/patternClk_exdes.vhd" into library work
+Parsing VHDL file "/home/ajit/Documents/main/HDMI2USB-master/ise/../ipcore_dir/edidram_synth.vhd" into library work
+Starting static elaboration
+Completed static elaboration
+Fuse Memory Usage: 116688 KB
+Fuse CPU Usage: 1480 ms
+Compiling package standard
+Compiling package std_logic_1164
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
+Compiling architecture rtl of entity top
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 5 VHDL Units
+Built simulation executable /home/ajit/Documents/main/HDMI2USB-master/ise/top_isim_beh.exe
+Fuse Memory Usage: 687200 KB
+Fuse CPU Usage: 1580 ms
+GCC CPU Usage: 210 ms
