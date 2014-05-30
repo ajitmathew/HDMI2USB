@@ -1,0 +1,541 @@
+Release 13.3 - xst O.76xd (nt64)
+Copyright (c) 1995-2011 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.30 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.30 secs
+ 
+--> Reading design: transmitter.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "transmitter.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "transmitter"
+Output Format                      : NGC
+Target Device                      : xc6slx4-3-tqg144
+
+---- Source Options
+Top Module Name                    : transmitter
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Analyzing Verilog file "C:\Users\Shantanu\Desktop\Study\SEM_6\VLSI Architecture\Project\UART\UART\TX_module.v" into library work
+Parsing module <uart_tx>.
+Analyzing Verilog file "C:\Users\Shantanu\Desktop\Study\SEM_6\VLSI Architecture\Project\UART\UART\FIFO.v" into library work
+Parsing module <fifo>.
+Analyzing Verilog file "C:\Users\Shantanu\Desktop\Study\SEM_6\VLSI Architecture\Project\UART\UART\Baud_generator.v" into library work
+Parsing module <mod_m_counter>.
+Analyzing Verilog file "C:\Users\Shantanu\Desktop\Study\SEM_6\VLSI Architecture\Project\UART\UART\UART_Transmitter.v" into library work
+Parsing module <transmitter>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating module <transmitter>.
+
+Elaborating module <mod_m_counter(M=163,N=8)>.
+WARNING:HDLCompiler:413 - "C:\Users\Shantanu\Desktop\Study\SEM_6\VLSI Architecture\Project\UART\UART\Baud_generator.v" Line 24: Result of 32-bit expression is truncated to fit in 8-bit target.
+
+Elaborating module <fifo(B=8,W=5)>.
+WARNING:HDLCompiler:413 - "C:\Users\Shantanu\Desktop\Study\SEM_6\VLSI Architecture\Project\UART\UART\FIFO.v" Line 49: Result of 6-bit expression is truncated to fit in 5-bit target.
+WARNING:HDLCompiler:413 - "C:\Users\Shantanu\Desktop\Study\SEM_6\VLSI Architecture\Project\UART\UART\FIFO.v" Line 50: Result of 6-bit expression is truncated to fit in 5-bit target.
+
+Elaborating module <uart_tx(DBIT=8,SB_TICK=16)>.
+WARNING:HDLCompiler:413 - "C:\Users\Shantanu\Desktop\Study\SEM_6\VLSI Architecture\Project\UART\UART\TX_module.v" Line 78: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "C:\Users\Shantanu\Desktop\Study\SEM_6\VLSI Architecture\Project\UART\UART\TX_module.v" Line 91: Result of 4-bit expression is truncated to fit in 3-bit target.
+WARNING:HDLCompiler:413 - "C:\Users\Shantanu\Desktop\Study\SEM_6\VLSI Architecture\Project\UART\UART\TX_module.v" Line 94: Result of 5-bit expression is truncated to fit in 4-bit target.
+WARNING:HDLCompiler:413 - "C:\Users\Shantanu\Desktop\Study\SEM_6\VLSI Architecture\Project\UART\UART\TX_module.v" Line 106: Result of 5-bit expression is truncated to fit in 4-bit target.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <transmitter>.
+    Related source file is "c:/users/shantanu/desktop/study/sem_6/vlsi architecture/project/uart/uart/uart_transmitter.v".
+        DBIT = 8
+        SB_TICK = 16
+        DVSR = 163
+        DVSR_BIT = 8
+        FIFO_W = 5
+INFO:Xst:3210 - "c:/users/shantanu/desktop/study/sem_6/vlsi architecture/project/uart/uart/uart_transmitter.v" line 23: Output port <q> of the instance <baud_gen_unit> is unconnected or connected to loadless signal.
+    Summary:
+	no macro.
+Unit <transmitter> synthesized.
+
+Synthesizing Unit <mod_m_counter>.
+    Related source file is "c:/users/shantanu/desktop/study/sem_6/vlsi architecture/project/uart/uart/baud_generator.v".
+        N = 8
+        M = 163
+    Found 8-bit register for signal <r_reg>.
+    Found 9-bit adder for signal <n0013[8:0]> created at line 24.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred   8 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <mod_m_counter> synthesized.
+
+Synthesizing Unit <fifo>.
+    Related source file is "c:/users/shantanu/desktop/study/sem_6/vlsi architecture/project/uart/uart/fifo.v".
+        B = 8
+        W = 5
+    Found 32x8-bit dual-port RAM <Mram_array_reg> for signal <array_reg>.
+    Found 1-bit register for signal <empty_reg>.
+    Found 5-bit register for signal <r_ptr_reg>.
+    Found 5-bit register for signal <w_ptr_reg>.
+    Found 1-bit register for signal <full_reg>.
+    Found 5-bit adder for signal <w_ptr_succ> created at line 49.
+    Found 5-bit adder for signal <r_ptr_succ> created at line 50.
+    Found 5-bit comparator not equal for signal <r_ptr_reg[4]_w_ptr_reg[4]_equal_8_o> created at line 63
+    Found 5-bit comparator not equal for signal <w_ptr_reg[4]_r_ptr_reg[4]_equal_10_o> created at line 71
+    Summary:
+	inferred   1 RAM(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred  12 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+Unit <fifo> synthesized.
+
+Synthesizing Unit <uart_tx>.
+    Related source file is "c:/users/shantanu/desktop/study/sem_6/vlsi architecture/project/uart/uart/tx_module.v".
+        DBIT = 8
+        SB_TICK = 16
+    Found 1-bit register for signal <tx_reg>.
+    Found 4-bit register for signal <s_reg>.
+    Found 3-bit register for signal <n_reg>.
+    Found 8-bit register for signal <b_reg>.
+    Found 2-bit register for signal <state_reg>.
+    Found finite state machine <FSM_0> for signal <state_reg>.
+    -----------------------------------------------------------------------
+    | States             | 4                                              |
+    | Transitions        | 12                                             |
+    | Inputs             | 4                                              |
+    | Outputs            | 2                                              |
+    | Clock              | clk (rising_edge)                              |
+    | Reset              | reset (positive)                               |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | 00                                             |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 3-bit adder for signal <n_reg[2]_GND_5_o_add_17_OUT> created at line 91.
+    Found 4-bit adder for signal <s_reg[3]_GND_5_o_add_30_OUT> created at line 106.
+    Found 4-bit 4-to-1 multiplexer for signal <s_next> created at line 56.
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred  16 D-type flip-flop(s).
+	inferred  10 Multiplexer(s).
+	inferred   1 Finite State Machine(s).
+Unit <uart_tx> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 32x8-bit dual-port RAM                                : 1
+# Adders/Subtractors                                   : 5
+ 3-bit adder                                           : 1
+ 4-bit adder                                           : 1
+ 5-bit adder                                           : 2
+ 9-bit adder                                           : 1
+# Registers                                            : 9
+ 1-bit register                                        : 3
+ 3-bit register                                        : 1
+ 4-bit register                                        : 1
+ 5-bit register                                        : 2
+ 8-bit register                                        : 2
+# Comparators                                          : 2
+ 5-bit comparator not equal                            : 2
+# Multiplexers                                         : 11
+ 1-bit 2-to-1 multiplexer                              : 2
+ 3-bit 2-to-1 multiplexer                              : 1
+ 32-bit 2-to-1 multiplexer                             : 1
+ 4-bit 2-to-1 multiplexer                              : 5
+ 4-bit 4-to-1 multiplexer                              : 1
+ 8-bit 2-to-1 multiplexer                              : 1
+# FSMs                                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+
+Synthesizing (advanced) Unit <fifo>.
+The following registers are absorbed into counter <r_ptr_reg>: 1 register on signal <r_ptr_reg>.
+The following registers are absorbed into counter <w_ptr_reg>: 1 register on signal <w_ptr_reg>.
+INFO:Xst:3217 - HDL ADVISOR - Register <b_reg> currently described with an asynchronous reset, could be combined with distributed RAM <Mram_array_reg> for implementation on block RAM resources if you made this reset synchronous instead.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 32-word x 8-bit                     |          |
+    |     clkA           | connected to signal <clk>           | rise     |
+    |     weA            | connected to signal <wr_en>         | high     |
+    |     addrA          | connected to signal <w_ptr_reg>     |          |
+    |     diA            | connected to signal <w_data>        |          |
+    -----------------------------------------------------------------------
+    | Port B                                                              |
+    |     aspect ratio   | 32-word x 8-bit                     |          |
+    |     addrB          | connected to signal <r_ptr_reg>     |          |
+    |     doB            | connected to internal node          |          |
+    -----------------------------------------------------------------------
+Unit <fifo> synthesized (advanced).
+
+Synthesizing (advanced) Unit <uart_tx>.
+The following registers are absorbed into counter <n_reg>: 1 register on signal <n_reg>.
+Unit <uart_tx> synthesized (advanced).
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 32x8-bit dual-port distributed RAM                    : 1
+# Adders/Subtractors                                   : 4
+ 4-bit adder                                           : 1
+ 5-bit adder                                           : 2
+ 9-bit adder                                           : 1
+# Counters                                             : 3
+ 3-bit up counter                                      : 1
+ 5-bit up counter                                      : 2
+# Registers                                            : 23
+ Flip-Flops                                            : 23
+# Comparators                                          : 2
+ 5-bit comparator not equal                            : 2
+# Multiplexers                                         : 10
+ 1-bit 2-to-1 multiplexer                              : 2
+ 32-bit 2-to-1 multiplexer                             : 1
+ 4-bit 2-to-1 multiplexer                              : 5
+ 4-bit 4-to-1 multiplexer                              : 1
+ 8-bit 2-to-1 multiplexer                              : 1
+# FSMs                                                 : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <uart_tx_unit/FSM_0> on signal <state_reg[1:2]> with gray encoding.
+-------------------
+ State | Encoding
+-------------------
+ 00    | 00
+ 01    | 01
+ 10    | 11
+ 11    | 10
+-------------------
+
+Optimizing unit <transmitter> ...
+
+Optimizing unit <fifo> ...
+
+Optimizing unit <mod_m_counter> ...
+
+Optimizing unit <uart_tx> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block transmitter, actual ratio is 3.
+FlipFlop uart_tx_unit/state_reg_FSM_FFd1 has been replicated 1 time(s)
+FlipFlop uart_tx_unit/state_reg_FSM_FFd2 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 40
+ Flip-Flops                                            : 40
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : transmitter.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 112
+#      GND                         : 1
+#      LUT2                        : 6
+#      LUT3                        : 16
+#      LUT4                        : 16
+#      LUT5                        : 26
+#      LUT6                        : 44
+#      MUXF7                       : 3
+# FlipFlops/Latches                : 40
+#      FDC                         : 30
+#      FDCE                        : 8
+#      FDP                         : 2
+# RAMS                             : 3
+#      RAM32M                      : 1
+#      RAM32X1D                    : 2
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 12
+#      IBUF                        : 10
+#      OBUF                        : 2
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx4tqg144-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:              40  out of   4800     0%  
+ Number of Slice LUTs:                  116  out of   2400     4%  
+    Number used as Logic:               108  out of   2400     4%  
+    Number used as Memory:                8  out of   1200     0%  
+       Number used as RAM:                8
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    118
+   Number with an unused Flip Flop:      78  out of    118    66%  
+   Number with an unused LUT:             2  out of    118     1%  
+   Number of fully used LUT-FF pairs:    38  out of    118    32%  
+   Number of unique control sets:         3
+
+IO Utilization: 
+ Number of IOs:                          13
+ Number of bonded IOBs:                  13  out of    102    12%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+clk                                | BUFGP                  | 43    |
+-----------------------------------+------------------------+-------+
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 3.826ns (Maximum Frequency: 261.370MHz)
+   Minimum input arrival time before clock: 4.314ns
+   Maximum output required time after clock: 3.926ns
+   Maximum combinational path delay: No path found
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 3.826ns (frequency: 261.370MHz)
+  Total number of paths / destination ports: 776 / 76
+-------------------------------------------------------------------------
+Delay:               3.826ns (Levels of Logic = 3)
+  Source:            baud_gen_unit/r_reg_4 (FF)
+  Destination:       fifo_tx_unit/empty_reg (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: baud_gen_unit/r_reg_4 to fifo_tx_unit/empty_reg
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              6   0.447   0.973  baud_gen_unit/r_reg_4 (baud_gen_unit/r_reg_4)
+     LUT3:I0->O           19   0.205   1.072  baud_gen_unit/max_tick<7>_SW0 (N4)
+     LUT6:I5->O            2   0.205   0.617  uart_tx_unit/Mmux_tx_done_tick11 (tx_done_tick)
+     LUT6:I5->O            1   0.205   0.000  fifo_tx_unit/full_reg_rstpot (fifo_tx_unit/full_reg_rstpot)
+     FDC:D                     0.102          fifo_tx_unit/full_reg
+    ----------------------------------------
+    Total                      3.826ns (1.164ns logic, 2.662ns route)
+                                       (30.4% logic, 69.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'clk'
+  Total number of paths / destination ports: 71 / 63
+-------------------------------------------------------------------------
+Offset:              4.314ns (Levels of Logic = 4)
+  Source:            wr_uart (PAD)
+  Destination:       fifo_tx_unit/r_ptr_reg_4 (FF)
+  Destination Clock: clk rising
+
+  Data Path: wr_uart to fifo_tx_unit/r_ptr_reg_4
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            21   1.222   1.218  wr_uart_IBUF (wr_uart_IBUF)
+     LUT2:I0->O            1   0.203   0.580  fifo_tx_unit/_n0071_inv1_rstpot (fifo_tx_unit/_n0071_inv1_rstpot)
+     LUT6:I5->O            1   0.205   0.580  fifo_tx_unit/r_ptr_reg_4_dpot (fifo_tx_unit/r_ptr_reg_4_dpot)
+     LUT3:I2->O            1   0.205   0.000  fifo_tx_unit/r_ptr_reg_4_dpot1 (fifo_tx_unit/r_ptr_reg_4_dpot1)
+     FDCE:D                    0.102          fifo_tx_unit/r_ptr_reg_4
+    ----------------------------------------
+    Total                      4.314ns (1.937ns logic, 2.377ns route)
+                                       (44.9% logic, 55.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk'
+  Total number of paths / destination ports: 2 / 2
+-------------------------------------------------------------------------
+Offset:              3.926ns (Levels of Logic = 1)
+  Source:            fifo_tx_unit/full_reg (FF)
+  Destination:       tx_full (PAD)
+  Source Clock:      clk rising
+
+  Data Path: fifo_tx_unit/full_reg to tx_full
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             12   0.447   0.908  fifo_tx_unit/full_reg (fifo_tx_unit/full_reg)
+     OBUF:I->O                 2.571          tx_full_OBUF (tx_full)
+    ----------------------------------------
+    Total                      3.926ns (3.018ns logic, 0.908ns route)
+                                       (76.9% logic, 23.1% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock clk
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk            |    3.826|         |         |         |
+---------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 12.00 secs
+Total CPU time to Xst completion: 11.86 secs
+ 
+--> 
+
+Total memory usage is 257308 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    7 (   0 filtered)
+Number of infos    :    2 (   0 filtered)
+

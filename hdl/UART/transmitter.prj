@@ -1,0 +1,4 @@
+verilog work "TX_module.v"
+verilog work "FIFO.v"
+verilog work "Baud_generator.v"
+verilog work "UART_Transmitter.v"

@@ -1,0 +1,1 @@
+xst -intstyle ise -ifn "C:/Users/Shantanu/Desktop/Study/SEM_6/VLSI Architecture/Project/UART/UART/transmitter.xst" -ofn "C:/Users/Shantanu/Desktop/Study/SEM_6/VLSI Architecture/Project/UART/UART/transmitter.syr" 
