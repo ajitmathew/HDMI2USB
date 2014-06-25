@@ -1,4 +1,4 @@
-//Listing 8.4
+// Default baud rate 9600
 module uart
    #(
       parameter Data_Bits = 8,     
@@ -24,7 +24,6 @@ module uart
 
 	UART_clk USART_CLOCK(clk,clkout);
    
-   //body
    mod_m_counter #(.M(DIVISOR), .N(DVSR_BIT)) baud_gen_unit
       (.clk(clkout), .reset(reset), .q(), .max_tck(tck));
 
