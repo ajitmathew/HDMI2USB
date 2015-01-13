@@ -101,8 +101,8 @@ port
 	scl_pc1 	: in std_logic; -- DDC scl connected with PC
 	sda_pc1 	: inout std_logic; -- DDC sda connected with PC	
 	
-	-- scl_lcd1 	: out std_logic; -- DDC scl connected with LCD
-	-- sda_lcd1 	: inout std_logic; -- DDC sda connected with LCD
+	 scl_lcd1 	: out std_logic; -- DDC scl connected with LCD
+	 sda_lcd1 	: inout std_logic; -- DDC sda connected with LCD
 
 	btnc 		: in std_logic;
 	btnu		: in std_logic; 
@@ -247,7 +247,7 @@ signal btnl_s : std_logic;
 signal jpeg_byte : std_logic_vector(7 downto 0);
 signal jpeg_en : std_logic;
 signal jpg_fifo_afull : std_logic;
-signal error_ram : std_logic;
+signal error_ddr : std_logic_vector(3 downto 0);
 signal to_send : std_logic_vector(23 downto 0);
 signal pktend_s:std_logic;
 signal HB_on : std_logic;
@@ -266,6 +266,7 @@ signal frame_size:std_logic_vector(23 downto 0);
 signal debug_byte:std_logic_vector(7 downto 0);
 signal debug_index:integer range 0 to 15;
 signal eof_jpg: std_logic;
+signal uvc_error : std_logic;
 
 ---------------------------------------------------------------------------------------------------------------------	
 begin
@@ -395,7 +396,7 @@ ddr2_comp : entity work.image_buffer
 			 to_send		  => to_send,
 		     rst              => rst,
 			 uvc_rst		  => uvc_rst,
-		     error            => error_ram);
+		     error_ddr            => error_ddr);
 		     
 img_sel_comp : entity work.image_selector
 	port map(rgb_H0       => rgb_H0,
@@ -565,6 +566,7 @@ usb_comp: entity work.usb_top
 	             debug_byte       => debug_byte,
 	             debug_index      => debug_index,
 					 eof_jpg     => eof_jpg,
+			  uvc_error        => uvc_error,
 		     uvc_rst          => uvc_rst,
 			 to_send		  => to_send,
 		     cmd_en           => cmd_en,
@@ -615,6 +617,7 @@ debug_module: entity work.debug_top
 	port map(
 		clk		=> clk,
 		clk_50Mhz	=> clk_50Mhz,
+		clk_img  => img_clk,
 		rst		=> rst,
 		vsync		=> vsync,
 		no_frame_read	=> no_frame_read,
@@ -638,6 +641,8 @@ debug_module: entity work.debug_top
 		eof_jpg  => eof_jpg,
 		debug_byte	=> debug_byte,
 		debug_index	=> debug_index,
+		uvc_error   => uvc_error,
+		error_ddr   => error_ddr,
 		uart_byte	=> uart_byte
 	);
 

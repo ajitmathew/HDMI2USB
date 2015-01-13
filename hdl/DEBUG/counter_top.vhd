@@ -49,6 +49,7 @@ entity debug_top is
   port(
     clk           : in  std_logic;
     clk_50Mhz     : out std_logic;
+	 clk_img       : in  std_logic;
     rst           : in  std_logic;
     vsync         : in  std_logic;
     no_frame_read : in  std_logic;
@@ -73,6 +74,8 @@ entity debug_top is
 
     debug_byte  : out std_logic_vector(7 downto 0);
     debug_index : in  integer range 0 to 15;
+	 uvc_error   : in std_logic;
+	 error_ddr   : in std_logic_vector(3 downto 0);
     uart_byte   : out std_logic_vector(7 downto 0)
     );
 end debug_top;
@@ -122,11 +125,37 @@ architecture Behavioral of debug_top is
   signal uart_send_array  : send_array;
   signal byte_cnt         : integer range 0 to 15;
   signal debug_byte_q     : std_logic_vector(7 downto 0);
-  constant N_BYTES        : integer := 14;
+  signal uvc_error_q      : std_logic;
+  signal error_ddr_q      : std_logic_vector(3 downto 0);
+  constant N_BYTES        : integer := 15;
 
 begin
 
   clk_50Mhz <= clk_50Mhz_s;
+  --latch for uvc_error
+  process (clk_img,rst)
+  begin
+    if rst = '1'  then
+		uvc_error_q <= '0';
+	 elsif rising_edge(clk_img) then
+		if uvc_error_q = '0' then
+			uvc_error_q <= uvc_error;
+		else
+			uvc_error_q <= '1';
+		end if;
+	 end if;
+  end process;
+  --latch for error_ddr
+  process (clk_img,rst)
+  begin
+    if rst = '1'  then
+		error_ddr_q <= "0000";
+	 elsif rising_edge(clk_img) then
+		if error_ddr_q = "0000" then
+			error_ddr_q <= error_ddr;
+		end if;
+	 end if;
+  end process;  
   process(clk, rst)
   begin
     if rst = '1' then
@@ -178,6 +207,7 @@ begin
   uart_send_array(11) <= frame_size(23 downto 16);
   uart_send_array(12) <= frame_size(15 downto 8);
   uart_send_array(13) <= frame_size(7 downto 0);
+  uart_send_array(14) <= "000" & error_ddr_q & uvc_error_q;
 
 
   debug_byte <= uart_send_array(debug_index);
@@ -200,7 +230,7 @@ begin
           end if;
         when N_BYTES-1 =>
           uart_en   <= '1';
-          uart_byte <= uart_send_array(13);
+          uart_byte <= uart_send_array(N_BYTES-1);
           byte_cnt  <= 0;
         when others =>
           uart_en   <= '1';

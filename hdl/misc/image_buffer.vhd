@@ -86,7 +86,7 @@ port(
 	to_send 		: out std_logic_vector(23 downto 0);
 	rst 	: in std_logic;
 	uvc_rst	: in std_logic;
-	error	: out std_logic
+   error_ddr : out std_logic_vector(3 downto 0)
 );
 end image_buffer;
 
@@ -272,12 +272,31 @@ signal write_img 	: std_logic;
 signal read_img 	: std_logic;
 signal vsync_rising_edge 	: std_logic;
 signal vsync_q 	: std_logic;
-
 signal line_ready : std_logic;
-
+signal c3_p2_rd_error_q : std_logic;
+signal c3_p3_wr_error_q : std_logic;
+signal c3_p2_rd_overflow_q : std_logic;
+signal c3_p3_wr_underrun_q  : std_logic;
 
 begin -- Architecture 
 
+error_ddr <= c3_p2_rd_error_q & c3_p3_wr_error_q & c3_p2_rd_overflow_q
+					& c3_p3_wr_underrun_q;
+
+process(clk_img,rst)
+begin
+	if rst = '1' then
+		c3_p2_rd_error_q   <= '0';
+		c3_p3_wr_error_q   <= '0';
+      c3_p2_rd_overflow_q <= '0';
+		c3_p3_wr_underrun_q <= '0';
+	elsif rising_edge(clk_img) then
+		c3_p2_rd_error_q   <= c3_p2_rd_error;
+		c3_p3_wr_error_q   <= c3_p3_wr_error;
+      c3_p2_rd_overflow_q <= c3_p2_rd_overflow;
+		c3_p3_wr_underrun_q <= c3_p3_wr_underrun;
+	end if;
+end process;
 
 process(uvc_rst, clk_img)
 begin

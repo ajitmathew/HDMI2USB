@@ -87,6 +87,7 @@ entity usb_top is
 	cmd 			: out std_logic_vector(7 downto 0);
 	
 	--debug
+	uvc_error   : out std_logic;
 	debug_byte  : in std_logic_vector(7 downto 0);
 	debug_index : out integer range 0 to 15;
 	eof_jpg     : out std_logic;
@@ -161,6 +162,8 @@ fdatain <= fdata;
 fdata <= fdataout when sloe_i = '1' else "ZZZZZZZZ";
 
 sloe_i <= '0' when (faddr_i = cdcout) else '1';
+
+uvc_error <= jpg_uvc_error;
 
 syncProc: process(rst,ifclk) -- usb process
 begin -- process
