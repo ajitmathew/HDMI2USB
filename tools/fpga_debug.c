@@ -29,6 +29,7 @@
 #define SIZE3_i 11
 #define SIZE2_i 12
 #define SIZE1_i 13
+#define error 14
 
 /* Non blocking IO Enable/Disable */
 #define NB_ENABLE 1
@@ -286,6 +287,17 @@ void parse_and_print(unsigned char debug_arr[])
 	frame_size = frame_size << 8 | debug_arr[SIZE2_i];
 	frame_size = frame_size << 8 | debug_arr[SIZE1_i];
 	printf("Frame Size: %f Mbytes\n", frame_size * 8.0 / 1024 / 1024);
+	
+	if(debug_arr[error]== 0)
+		printf("No Error\n");
+	else{
+		int er = debug_arr[error];
+		if(er & 0x01)
+			printf("UVC Error\n");
+		if((er >> 1) & 0x07)
+			printf("DDR Error: %d\n", er);
+	}
+
 	printf("\n");
 	printf("Press ENTER to return");
 	fflush(stdout);
@@ -301,6 +313,7 @@ int main()
 			printf("Chose Debugging Output Method\n");
 			printf("\n1- CDC\n");
 			printf("\n2- UART\n");
+			printf("\n3- EDID STATUS\n");
 			printf("\nq- Return\n");
 			printf("\nTo select press [1/2/q]: ");
 			fflush(stdout);
@@ -348,6 +361,20 @@ int main()
 							index = index + 1;
 						}
 						parse_and_print(debug_arr);
+					}
+					getchar();
+					close(fd);
+				} else if (cdcORuart == '3'){
+					while(!kbhit()){
+						write(fd, "HS", 2);
+						if(read(fd, buf, 300) < 0)
+							perror("EDID READ ERROR");
+						int i;
+						printf("\033[2J\033[1;1H");
+						printf("EDID STATUS\n");
+						for(i = 0; i < 128; i++)
+							printf("EDID BYTE %d : %d\n",i,buf[i]);
+						sleep(10);
 					}
 					getchar();
 					close(fd);
